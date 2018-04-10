@@ -1,0 +1,46 @@
+.cell {
+
+  .cell-content {
+    position: relative;
+    width: 220px;
+
+    &:hover {
+      .cell-link {
+        height: auto;
+        opacity: .75;
+      }
+    }
+
+    img {
+      height: auto;
+      position: relative;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .cell-link {
+      background-color: $color--white;
+      bottom: 0;
+      color: $color--black;
+      height: 0;
+      left: 0;
+      opacity: 0;
+      padding: $padding--xs;
+      position: absolute;
+      text-align: center;
+      text-decoration: none;
+      transition: all 900ms ease 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .cell-icon {
+      color: $color--white;
+      opacity: .75;
+    }
+  }
+
+  .cell-header {
+    font-family: 'Yeon Sung', cursive;
+  }
+}
