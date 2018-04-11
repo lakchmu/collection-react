@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Cell extends Component {
   render() {
@@ -8,12 +9,20 @@ class Cell extends Component {
         <div className="cell-content">
           <i className="fas fa-info-circle cell-icon" />
           <img src={serie.image} alt="Serie" />
-          <a className="cell-link" href="#">More</a>
+          <a className="cell-link" href="./#">More</a>
         </div>
         <div className="cell-header">{serie.name}</div>
       </div>
     );
   }
 }
+
+Cell.defaultProps = {
+  serie: {},
+};
+
+Cell.propTypes = {
+  serie: PropTypes.instanceOf(Object),
+};
 
 export default Cell;

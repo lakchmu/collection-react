@@ -1,3 +1,5 @@
+/* global Headers, fetch */
+
 import { API_END_POINT, API_METHOD_SERIES } from './constants';
 
 function getResponse(response) {
