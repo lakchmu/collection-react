@@ -1,6 +1,6 @@
 /* global Headers, fetch */
 
-import { API_END_POINT, API_METHOD_SERIES } from './constants';
+import { API_END_POINT, API_METHOD_SERIES, API_METHOD_COUNT } from './constants';
 
 function getResponse(response) {
   if (response.ok === false) {
@@ -33,5 +33,13 @@ function getSeries() {
     });
 }
 
+function getCountInfo() {
+  return request(API_METHOD_COUNT, 'get')
+    .then(response => response.json())
+    .catch((error) => {
+      throw new Error(error.message);
+    });
+}
+
 export default request;
-export { getResponse, getSeries };
+export { getResponse, getSeries, getCountInfo };

@@ -1,0 +1,28 @@
+.search {
+  display: inline-block;
+  position: relative;
+  width: auto;
+
+  input {
+    background-color: transparent;
+    border: 2px solid $color--white;
+    border-radius: 25px;
+    color: $color--white;
+    font-size: 18px;
+    height: 26px;
+    line-height: 26px;
+    padding-left: $padding--md;
+
+    &::placeholder {
+      color: $color--white;
+      font-size: 18px;
+    }
+  }
+
+  label {
+    color: $color--white;
+    font-size: 18px;
+    position: absolute;
+    right: 18px;
+  }
+}
