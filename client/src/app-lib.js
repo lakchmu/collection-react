@@ -41,5 +41,13 @@ function getCountInfo() {
     });
 }
 
+function getJson(API_METHOD) {
+  return request(API_METHOD, 'get')
+    .then(response => response.json())
+    .catch((error) => {
+      throw new Error(error.message);
+    });
+}
+
 export default request;
-export { getResponse, getSeries, getCountInfo };
+export { getResponse, getSeries, getCountInfo, getJson };
