@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Tooltip from './tooltip';
 
 class Cell extends Component {
   render() {
@@ -7,7 +8,9 @@ class Cell extends Component {
     return (
       <div className="cell" >
         <div className="cell-content">
-          <i className="fas fa-info-circle cell-icon" />
+          <Tooltip tooltipText="Hello">
+            <i className="fas fa-info-circle cell-icon" />
+          </Tooltip>
           <img className="image" src={serie.image} alt="Serie" />
           <img className="photo" src={serie.photo} alt="Serie" />
           <a className="cell-link" href="./#">More</a>

@@ -1,0 +1,33 @@
+.tooltip {
+  margin: $margin--sm;
+}
+
+.tooltip-body {
+  background-color: $color--black;
+  border: 0;
+  border-radius: 5px;
+  color: $color--white;
+  display: inline-block;
+  left: 0;
+  max-width: 250px;
+  opacity: .75;
+  padding: $padding--xs $padding--sm;
+  position: absolute;
+  top: 0;
+  transform: translate(-8px, 5px);
+  width: auto;
+  z-index: 2;
+
+  &::before {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $color--black;
+    content: '';
+    height: 0;
+    left: 10px;
+    margin-top: -1px;
+    position: absolute;
+    top: 100%;
+    width: 0;
+  }
+}
