@@ -34,7 +34,7 @@
 
     img {
       border: 0;
-      border-radius: 5px;
+      border-radius: 2px;
       height: auto;
       position: relative;
       height: 100%;
@@ -48,10 +48,12 @@
     }
 
     .cell-link {
-      background-color: $color--white;
+      background-color: $color--sea;
+      border: 0;
+      border-radius: 2px;
       bottom: 0;
       box-sizing: border-box;
-      color: $color--black;
+      color: $color--white;
       font-size: 16px;
       height: 0;
       left: 0;
@@ -66,7 +68,7 @@
     }
 
     .cell-icon {
-      color: $color--white;
+      color: $color--sea;
       font-size: 16px;
       left: 12px;
       opacity: 0;
