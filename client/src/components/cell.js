@@ -8,7 +8,8 @@ class Cell extends Component {
       <div className="cell" >
         <div className="cell-content">
           <i className="fas fa-info-circle cell-icon" />
-          <img src={serie.image} alt="Serie" />
+          <img className="image" src={serie.image} alt="Serie" />
+          <img className="photo" src={serie.photo} alt="Serie" />
           <a className="cell-link" href="./#">More</a>
         </div>
         <div className="cell-header">{serie.name}</div>
