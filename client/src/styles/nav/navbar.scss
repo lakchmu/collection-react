@@ -1,34 +1,52 @@
 .navbar {
-  color: $color--white;
-  height: 50px;
-  line-height: 50px;
-  margin-bottom: $margin--xxxl;
-  width: 100%;
+  color: $color--grey-3;
+  height: 32px;
+  line-height: 32px;
+  margin: auto;
+  padding: $padding--6xl 0 $padding--8xl;
+  width: 978px;
 
   .navbar-container {
-    height: 50px;
-    line-height: 50px;
+    height: 32px;
+    line-height: 32px;
     margin: auto;
     position: relative;
-    width: 80%;
+  }
+
+  .navbar-left,
+  .navbar-center,
+  .navbar-right {
+    display: inline-block;
+    vertical-align: top;
+    width: 33.33%;
+  }
+
+  .navbar-left {
+    text-align: left;
+  }
+
+  .navbar-center {
+    text-align: center;
+  }
+
+  .navbar-right {
+    height: 32px;
+    line-height: 32px;
+    text-align: right;
   }
 
   .navbar-info {
     display: inline-block;
-    height: 50px;
-    line-height: 40x;
-    width: 50%;
+    height: 32px;
+    line-height: 32px;
 
     .icon-info {
       margin: 0 $margin--xs;
     }
   }
 
-  .navbar-right {
-    display: inline-block;
-    height: 50px;
-    line-height: 50px;
-    text-align: right;
-    width: 50%;
+  .logo {
+    font-size: 26px;
+    text-transform: uppercase;
   }
 }

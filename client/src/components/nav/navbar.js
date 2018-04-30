@@ -8,7 +8,12 @@ class Navbar extends Component {
     return (
       <nav className="navbar">
         <div className="navbar-container">
-          <CountInfo />
+          <div className="navbar-left">
+            <CountInfo />
+          </div>
+          <div className="navbar-center">
+            <h1 className="logo">MyColl</h1>
+          </div>
           <div className="navbar-right">
             <Search />
             <Dropdown>

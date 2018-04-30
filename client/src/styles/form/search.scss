@@ -5,24 +5,40 @@
 
   input {
     background-color: transparent;
-    border: 2px solid $color--white;
-    border-radius: 25px;
+    border: 1px solid $color--black-05;
+    box-sizing: border-box;
     color: $color--white;
     font-size: 18px;
-    height: 26px;
+    height: 32px;
     line-height: 26px;
     padding-left: $padding--md;
+    width: 200px;
 
     &::placeholder {
-      color: $color--white;
-      font-size: 18px;
+      color: $color--grey-3;
+      font-size: 14px;
+    }
+
+    &:focus {
+      border-color: $color--orange-100;
+      outline: none;
     }
   }
 
-  label {
+  button {
+    background-color: $color--orange-100;
+    border: 0;
     color: $color--white;
-    font-size: 18px;
+    font-size: 16px;
+    height: 32px;
     position: absolute;
-    right: 18px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+
+    .fa-search {
+      vertical-align: middle;
+    }
   }
 }

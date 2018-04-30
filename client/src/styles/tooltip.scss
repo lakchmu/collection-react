@@ -3,7 +3,7 @@
 }
 
 .tooltip-body {
-  background-color: $color--black-80;
+  background-color: $color--grey-2;
   border: 0;
   border-radius: 5px;
   color: $color--black-10;
@@ -11,7 +11,7 @@
   left: 0;
   max-width: 250px;
   opacity: 1;
-  padding: $padding--xs $padding--sm;
+  padding: $padding--sm $padding--md;
   position: absolute;
   top: 0;
   transform: translate(-8px, 5px);
@@ -21,7 +21,7 @@
   &::before {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid $color--black;
+    border-top: 5px solid $color--grey-2;
     content: '';
     height: 0;
     left: 10px;

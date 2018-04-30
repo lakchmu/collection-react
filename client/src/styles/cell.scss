@@ -1,5 +1,6 @@
 .cell {
   display: inline-block;
+  font-family: Verdana, Geneva, sans-serif;
   margin: $margin--xs;
   width: auto;
 
@@ -16,7 +17,7 @@
       }
 
       .cell-icon {
-        opacity: .75;
+        opacity: 1;
       }
 
       img {
@@ -48,7 +49,7 @@
     }
 
     .cell-link {
-      background-color: $color--sea;
+      background-color: $color--grey-1;
       border: 0;
       border-radius: 2px;
       bottom: 0;
@@ -62,13 +63,14 @@
       position: absolute;
       text-align: center;
       text-decoration: none;
+      text-transform: uppercase;
       transition: all 900ms ease 0;
       width: 100%;
       z-index: 2;
     }
 
     .cell-icon {
-      color: $color--sea;
+      color: $color--grey-1;
       font-size: 16px;
       left: 12px;
       opacity: 0;
@@ -79,7 +81,6 @@
   }
 
   .cell-header {
-    font-family: 'Yeon Sung', cursive;
     font-size: 16px;
     margin-top: $margin--sm;
   }

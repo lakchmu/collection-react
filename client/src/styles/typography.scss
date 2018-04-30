@@ -1,24 +1,19 @@
-h1 {
-  color: $color--black-80;
-  font-size: 26px;
-  font-weight: 400;
-}
-
+h1,
 h2 {
-  color: $color--black;
-  font-size: 15px;
+  color: $color--grey-3;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 28px;
   font-weight: 400;
-  text-transform: uppercase;
 }
 
 p,
 .text-normall {
-  color: $color--black;
+  color: $color--grey-3;
   font-size: 15px;
   font-weight: 400;
 }
 
 .light {
-  color: $color--black-40;
+  color: $color--grey-3;
   font-weight: 300;
 }

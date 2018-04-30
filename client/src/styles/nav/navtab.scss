@@ -1,36 +1,30 @@
 .navtab {
+  border-bottom: 1px solid $color--black-10;
+  border-top: 1px solid $color--black-10;
+  margin-bottom: $margin--6xl;
+  width: 100%;
+
   ul {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    font-size: 0;
+    text-align: center;
   }
 
   li {
-    border-bottom: 1px solid $color--boggy;
-    border-right: 1px solid $color--boggy;
-    border-top: 0;
-    box-sizing: border-box;
     display: inline-block;
-    line-height: 36px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 33.33%;
-
-    &:first-child {
-      border-top-left-radius: 5px;
-    }
-
-    &:last-child {
-      border-right: 0;
-      border-top-right-radius: 5px;
-      margin-right: 0;
-    }
+    margin: 0 $margin--md;
+    width: auto;
   }
 
   a {
-    color: $color--boggy;
-    font-size: 15px;
-    line-height: 36px;
+    color: $color--grey-3;
+    display: block;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    padding: $padding--lg 0;
     text-decoration: none;
+    text-transform: uppercase;
+
+    &.active {
+      color: $color--orange-100;
+    }
   }
 }

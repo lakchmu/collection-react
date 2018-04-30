@@ -4,10 +4,10 @@ class Search extends Component {
   render() {
     return (
       <form className="search">
-        <input id="search" name="search" type="text" placeholder="Search" />
-        <label htmlFor="search">
+        <input id="search" name="search" type="text" placeholder="Search Here..." />
+        <button type="submit">
           <i className="fas fa-search" />
-        </label>
+        </button>
       </form>
     );
   }

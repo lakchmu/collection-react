@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import Home from '../home';
 
 class Navtab extends Component {
@@ -9,7 +9,7 @@ class Navtab extends Component {
         <div>
           <nav className="navtab">
             <ul>
-              <li><Link href="/" to="/">Home</Link></li>
+              <li><NavLink href="/" to="/">Home</NavLink></li>
               <li><a href="./#">All Series</a></li>
               <li><a href="./#">Info</a></li>
             </ul>
