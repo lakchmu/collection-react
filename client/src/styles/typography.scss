@@ -1,5 +1,6 @@
 h1,
-h2 {
+h2,
+h3 {
   color: $color--grey-3;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 28px;
@@ -11,9 +12,15 @@ p,
   color: $color--grey-3;
   font-size: 15px;
   font-weight: 400;
+  line-height: 1.62;
+  margin: $margin--md 0;
 }
 
 .light {
   color: $color--grey-3;
   font-weight: 300;
+}
+
+strong {
+  font-weight: 600;
 }
