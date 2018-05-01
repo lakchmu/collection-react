@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { getSeries } from '../app-lib';
+import { getJson } from '../app-lib';
+import { API_METHOD_HOME_SERIES } from '../constants';
 import Cell from './cell';
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = { series: [] };
-    getSeries().then(response => this.setState({ series: response.results }));
+    getJson(API_METHOD_HOME_SERIES).then(response => this.setState({ series: response.results }));
   }
 
   render() {
