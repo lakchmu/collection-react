@@ -1,4 +1,4 @@
-/* global document */
+/* global document, window */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -17,7 +17,7 @@ class Tooltip extends Component {
     const targetCoordinates = e.target.getBoundingClientRect();
     document.body.appendChild(this.node);
     this.node.style.left = `${targetCoordinates.left}px`;
-    this.node.style.top = `${targetCoordinates.top - this.node.offsetHeight}px`;
+    this.node.style.top = `${targetCoordinates.top + (window.pageYOffset - this.node.offsetHeight - targetCoordinates.height)}px`;
   }
 
   handleMouseLeave() {

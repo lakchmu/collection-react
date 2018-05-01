@@ -22,7 +22,6 @@ class Cell extends Component {
   render() {
     const { serie } = this.props;
     const info = this.state.serieFigurineInfo;
-    console.warn(this.state.serieFigurineInfo);
     return (
       <div className="cell" >
         <img className="image" src={serie.image} alt="Serie" />
@@ -32,13 +31,9 @@ class Cell extends Component {
             <i className="fas fa-chess-queen cell-icon" />
             <strong>
               In:
-              <span>
-                <Tooltip tooltipText={info.bought_figurine.join(', ') || '-'}> {info.bought_figurine_count} </Tooltip>
-              </span>
+              <Tooltip tooltipText={info.bought_figurine.join(', ') || '-'}><span>{info.bought_figurine_count}</span></Tooltip>
               | Out:
-              <span>
-                <Tooltip tooltipText={info.not_bought_figurine.join(', ') || '-'}> {info.not_bought_figurine_count}</Tooltip>
-              </span>
+              <Tooltip tooltipText={info.not_bought_figurine.join(', ') || '-'}><span>{info.not_bought_figurine_count}</span></Tooltip>
             </strong>
             <div className="fl-right">
               <a className="cell-link" href="./#">Read More</a>
