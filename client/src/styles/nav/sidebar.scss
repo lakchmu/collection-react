@@ -1,0 +1,21 @@
+.sidebar {
+  float: right;
+  width: auto;
+
+  a {
+    border-bottom: 1px solid $color--grey-4;
+    color: $color--grey-3;
+    display: block;
+    padding: $padding--xs $padding--sm $padding--xs $padding--md;
+    text-decoration: none;
+
+    &:hover {
+      color: $color--orange-100;
+    }
+  }
+
+  .fa-angle-double-right {
+    font-size: 8px;
+    vertical-align: middle;
+  }
+}
