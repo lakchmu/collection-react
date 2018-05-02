@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div className="home">
         <h1>Home</h1>
-        {this.state.series.map(serie => <Cell serie={serie} key={serie.image} />)}
+        {this.state.series.map(serie => <Cell serie={serie} key={serie.id} />)}
       </div>
     );
   }
