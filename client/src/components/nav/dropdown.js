@@ -34,7 +34,7 @@ Dropdown.defaultProps = {
 };
 
 Dropdown.propTypes = {
-  children: PropTypes.instanceOf(<li />),
+  children: PropTypes.node,
 };
 
 
