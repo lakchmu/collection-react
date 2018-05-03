@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import Home from '../home';
-import AllSeries from '../all-series';
+import Sidebar from './sidebar';
 
 class Navtab extends Component {
   render() {
@@ -11,13 +11,13 @@ class Navtab extends Component {
           <nav className="navtab">
             <ul>
               <li><NavLink href="/" to="/">Home</NavLink></li>
-              <li><NavLink href="/all-series" to="/all-series">All Series</NavLink></li>
+              <li><NavLink href="/all-series/all" to="/all-series/all">All Series</NavLink></li>
               <li><a href="./#">Info</a></li>
             </ul>
           </nav>
 
           <Route exact path="/" component={Home} />
-          <Route exact path="/all-series" component={AllSeries} />
+          <Route exact path="/all-series/:year" component={Sidebar} />
         </div>
       </Router>
     );

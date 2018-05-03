@@ -11,12 +11,8 @@ class Content extends Component {
   }
 }
 
-Content.defaultProps = {
-  children: <li />,
-};
-
 Content.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.element.isRequired,
 };
 
 export default Content;

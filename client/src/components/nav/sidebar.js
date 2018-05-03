@@ -26,17 +26,24 @@ class Sidebar extends Component {
         <div>
           <nav className="sidebar">
             <ul>
+              <li key="all">
+                <NavLink
+                  href="/all-series/all"
+                  to="/all-series/all"
+                ><i className="fas fa-angle-double-right" /> all
+                </NavLink>
+              </li>
               {listItem}
             </ul>
           </nav>
 
-          {/* <Route
+          <Route
             path="/all-series/:year"
             render={(props) => {
               console.warn(props);
               return <AllSeries {...props} />;
             }}
-          /> */}
+          />
         </div>
       </Router>
     );
