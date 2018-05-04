@@ -1,4 +1,4 @@
-.cell {
+.card {
   display: inline-block;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 0;
@@ -14,33 +14,33 @@
     z-index: 1;
   }
 
-  .cell-body {
+  .card-body {
     border: 1px solid $color--grey-4;
     border-top: 0;
     font-size: 0;
     padding: $padding--lg;
     position: relative;
 
-    .cell-link {
+    .card-link {
       box-sizing: border-box;
       color: $color--orange-100;
       font-size: 14px;
       text-decoration: none;
     }
 
-    .cell-icon {
+    .card-icon {
       margin-right: $margin--sm;
     }
   }
 
-  .cell-header {
+  .card-header {
     color: $color--grey-1;
     font-size: 20px;
     margin-bottom: $margin--md;
     text-transform: capitalize;
   }
 
-  .cell-footer {
+  .card-footer {
     color: $color--grey-3;
     font-size: 11px;
 

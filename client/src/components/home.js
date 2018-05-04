@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getJson } from '../app-lib';
 import { API_METHOD_SERIES } from '../constants';
-import Cell from './cell';
+import Card from './card';
 
 class Home extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div className="home">
         <h1>Home</h1>
-        {this.state.series.map(serie => <Cell serie={serie} key={serie.id} />)}
+        {this.state.series.map(serie => <Card serie={serie} key={serie.id} />)}
       </div>
     );
   }

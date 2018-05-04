@@ -4,7 +4,7 @@ import Tooltip from './tooltip';
 import { getJson } from '../app-lib';
 import { API_METHOD_SERIE_FIGURINE_INFO } from '../constants';
 
-class Cell extends Component {
+class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,12 +23,12 @@ class Cell extends Component {
     const { serie } = this.props;
     const info = this.state.serieFigurineInfo;
     return (
-      <div className="cell" >
+      <div className="card" >
         <img className="image" src={serie.image} alt="Serie" />
-        <div className="cell-body">
-          <h3 className="cell-header">{serie.name}</h3>
-          <div className="cell-footer">
-            <i className="fas fa-chess-queen cell-icon" />
+        <div className="card-body">
+          <h3 className="card-header">{serie.name}</h3>
+          <div className="card-footer">
+            <i className="fas fa-chess-queen card-icon" />
             <strong>
               In:
               <Tooltip tooltipText={info.bought_figurine.join(', ') || '-'}><span>{info.bought_figurine_count}</span></Tooltip>
@@ -36,7 +36,7 @@ class Cell extends Component {
               <Tooltip tooltipText={info.not_bought_figurine.join(', ') || '-'}><span>{info.not_bought_figurine_count}</span></Tooltip>
             </strong>
             <div className="fl-right">
-              <a className="cell-link" href="./#">Read More</a>
+              <a className="card-link" href="./#">Read More</a>
             </div>
           </div>
         </div>
@@ -45,12 +45,12 @@ class Cell extends Component {
   }
 }
 
-Cell.defaultProps = {
+Card.defaultProps = {
   serie: {},
 };
 
-Cell.propTypes = {
+Card.propTypes = {
   serie: PropTypes.instanceOf(Object),
 };
 
-export default Cell;
+export default Card;

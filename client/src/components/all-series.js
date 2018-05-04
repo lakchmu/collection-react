@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getJson } from '../app-lib';
 import { API_METHOD_SERIES } from '../constants';
-import Cell from './cell';
+import Card from './card';
 
 class AllSeries extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class AllSeries extends Component {
     return (
       <div className="all-series">
         <h1>All series {this.props.match.params.year}</h1>
-        {this.state.series.map(serie => <Cell serie={serie} key={serie.id} />)}
+        {this.state.series.map(serie => <Card serie={serie} key={serie.id} />)}
       </div>
     );
   }
