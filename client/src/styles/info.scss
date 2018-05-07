@@ -1,0 +1,21 @@
+.info {
+  font-size: 0;
+}
+
+.general-info,
+.diagram,
+.warning-info {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: $padding--xs;
+  vertical-align: top;
+  width: 33.33%;
+}
+
+.diagram {
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
