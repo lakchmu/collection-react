@@ -4,6 +4,7 @@ const API_METHOD_COUNT = 'getcountinfo';
 const API_METHOD_SERIE_FIGURINE_INFO = 'seriefigurineinfo';
 const API_METHOD_YEARS = 'getyears';
 const API_METHOD_SERIES_FOR_DECADES = 'seriesForDecades';
+const API_METHOD_GENERAL_INFO = 'generalInfo';
 
 export {
   API_END_POINT,
@@ -12,4 +13,5 @@ export {
   API_METHOD_SERIE_FIGURINE_INFO,
   API_METHOD_YEARS,
   API_METHOD_SERIES_FOR_DECADES,
+  API_METHOD_GENERAL_INFO,
 };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SeriesForDecades from './series-for-decades';
+import GeneralInfo from './general-info';
 // import { getJson } from '../app-lib';
 // import { API_METHOD_SERIES } from '../constants';
 
@@ -14,40 +15,7 @@ class Info extends Component {
   render() {
     return (
       <div className="info">
-        <div className="general-info">
-          <table>
-            <tr>
-              <th />
-              <th>All</th>
-              <th>Kinder</th>
-              <th>Other</th>
-            </tr>
-            <tr>
-              <td>Series in base</td>
-              <td>xxx</td>
-              <td>xxx</td>
-              <td>xxx</td>
-            </tr>
-            <tr>
-              <td>Figurine in base</td>
-              <td>xxx</td>
-              <td>xxx</td>
-              <td>xxx</td>
-            </tr>
-            <tr>
-              <td>Series in collection</td>
-              <td>xxx</td>
-              <td>xxx</td>
-              <td>xxx</td>
-            </tr>
-            <tr>
-              <td>Figurine in collection</td>
-              <td>xxx</td>
-              <td>xxx</td>
-              <td>xxx</td>
-            </tr>
-          </table>
-        </div>
+        <GeneralInfo />
         <div className="diagram">
           <img
             src="https://naprimerax.org/images/621/grafik-kursa-dollara-za-2016-god-kak-postroit-grafik-v-excel.png"
