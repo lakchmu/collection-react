@@ -11,7 +11,6 @@ class WarningInfo extends Component {
 
   render() {
     const { series } = this.state;
-    console.warn(series);
     return (
       <div className="warning-info">
         <table>

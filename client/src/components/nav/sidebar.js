@@ -39,10 +39,7 @@ class Sidebar extends Component {
 
           <Route
             path="/all-series/:year"
-            render={(props) => {
-              console.warn(props);
-              return <AllSeries {...props} />;
-            }}
+            render={props => <AllSeries {...props} />}
           />
         </div>
       </Router>
