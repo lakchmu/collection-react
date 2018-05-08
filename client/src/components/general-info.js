@@ -15,12 +15,14 @@ class GeneralInfo extends Component {
     return (
       <div className="general-info">
         <table>
-          <tr>
-            <th />
-            <th>All</th>
-            <th>Kinder</th>
-            <th>Other</th>
-          </tr>
+          <thead>
+            <tr>
+              <th />
+              <th>All</th>
+              <th>Kinder</th>
+              <th>Other</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td>Series in base</td>

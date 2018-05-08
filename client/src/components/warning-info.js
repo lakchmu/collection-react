@@ -14,11 +14,13 @@ class WarningInfo extends Component {
     return (
       <div className="warning-info">
         <table>
-          <tr>
-            <th>Year</th>
-            <th>Series Title</th>
-            <th>Series Id</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Series Title</th>
+              <th>Series Id</th>
+            </tr>
+          </thead>
           <tbody>
             {series.map(s => (
               <tr>
