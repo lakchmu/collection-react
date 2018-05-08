@@ -21,6 +21,7 @@ table {
     border-width: 0 1px;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 14px;
+    line-height: 1.62;
     padding: $padding--xs $padding--sm;
   }
 
@@ -29,6 +30,7 @@ table {
     border-color: $color--white;
     color: $color--white;
     font-weight: 700;
+    vertical-align: middle;
 
     &:first-child {
       border-left-width: 0;
