@@ -4,29 +4,22 @@ import PropTypes from 'prop-types';
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.shade = React.createRef();
-    this.content = React.createRef();
+    this.modal = React.createRef();
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
   openModal() {
-    this.shade.current.style.height = '100vh';
-    this.content.current.style.height = 'auto';
-    this.shade.current.style.opacity = 0.75;
-    this.content.current.style.opacity = 1;
+    this.modal.current.classList.add('show');
   }
 
   closeModal() {
-    this.shade.current.style.height = 0;
-    this.content.current.style.height = 0;
-    this.shade.current.style.opacity = 0;
-    this.content.current.style.opacity = 0;
+    this.modal.current.classList.remove('show');
   }
 
   render() {
     return (
-      <div className="modal" >
+      <div className="modal" ref={this.modal} >
         <span
           role="button"
           onClick={() => this.openModal()}
@@ -41,9 +34,8 @@ class Modal extends Component {
           onClick={() => this.closeModal()}
           onKeyPress={() => this.closeModal()}
           tabIndex="0"
-          ref={this.shade}
         />
-        <div className="modal-content" ref={this.content}>
+        <div className="modal-content">
           <button
             className="modal-close-button"
             onClick={() => this.closeModal()}
