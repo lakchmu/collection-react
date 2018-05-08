@@ -23,7 +23,7 @@ class WarningInfo extends Component {
           </thead>
           <tbody>
             {series.map(s => (
-              <tr>
+              <tr key={s.id}>
                 <td>{s.year}</td>
                 <td>{s.name}</td>
                 <td>{s.id}</td>
