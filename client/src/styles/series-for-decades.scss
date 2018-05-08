@@ -1,4 +1,6 @@
 .series-for-decades {
+  text-align: center;
+
   .cell {
     background-color: $color--grey-1;
     border: 0;
@@ -6,11 +8,11 @@
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
-    height: 75px;
+    height: 78px;
     line-height: 75px;
     margin: $margin--xs;
     text-align: center;
-    width: 75px;
+    width: 78px;
 
     &:hover {
       animation: shake .6s linear infinite;
