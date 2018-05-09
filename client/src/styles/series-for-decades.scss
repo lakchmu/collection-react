@@ -2,21 +2,24 @@
   text-align: center;
 
   .cell {
-    background-color: $color--grey-1;
+    background-color: $color--grey-5;
     border: 0;
-    color: $color--white;
+    color: $color--grey-3;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
-    height: 78px;
-    line-height: 75px;
+    // font-weight: 700;
+    height: 59px;
+    letter-spacing: 3px;
+    line-height: 59px;
     margin: $margin--xs;
     text-align: center;
-    width: 78px;
+    width: 59px;
 
     &:hover {
-      animation: shake .6s linear infinite;
+      animation: shake .7s linear infinite;
       backface-visibility: hidden;
+      // background-color: $color--orange-100;
       perspective: 1000px;
       transform: translate3d(0, 0, 0);
     }

@@ -26,27 +26,27 @@ class GeneralInfo extends Component {
           <tbody>
             <tr>
               <td>Series in base</td>
-              <td>{data.series_count}</td>
-              <td>{data.kinder_series_count}</td>
-              <td>{data.other_series_count}</td>
+              <td className="text-center">{data.series_count}</td>
+              <td className="text-center">{data.kinder_series_count}</td>
+              <td className="text-center">{data.other_series_count}</td>
             </tr>
             <tr>
               <td>Figurine in base</td>
-              <td>{data.meta_figurine_count}</td>
-              <td>{data.kinder_meta_figurine_count}</td>
-              <td>{data.other_meta_figurine_count}</td>
+              <td className="text-center">{data.meta_figurine_count}</td>
+              <td className="text-center">{data.kinder_meta_figurine_count}</td>
+              <td className="text-center">{data.other_meta_figurine_count}</td>
             </tr>
             <tr>
               <td>Series in collection</td>
-              <td>{data.my_series_count}</td>
-              <td>{data.kinder_my_series_count}</td>
-              <td>{data.other_my_series_count}</td>
+              <td className="text-center">{data.my_series_count}</td>
+              <td className="text-center">{data.kinder_my_series_count}</td>
+              <td className="text-center">{data.other_my_series_count}</td>
             </tr>
             <tr>
               <td>Figurine in collection</td>
-              <td>{data.figurine_count}</td>
-              <td>{data.kinder_figurine_count}</td>
-              <td>{data.other_figurine_count}</td>
+              <td className="text-center">{data.figurine_count}</td>
+              <td className="text-center">{data.kinder_figurine_count}</td>
+              <td className="text-center">{data.other_figurine_count}</td>
             </tr>
           </tbody>
         </table>

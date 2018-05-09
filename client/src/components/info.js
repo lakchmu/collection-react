@@ -23,15 +23,19 @@ class Info extends Component {
           area={false}
           data={this.state.data}
           width={978}
-          height={350}
+          height={250}
           x_accessor="year"
           y_accessor="figurines"
           x_rug="true"
           xax_format={a => a}
         />
-        <GeneralInfo />
-        <WarningInfo />
-        <SeriesForDecades />
+        <div className="col-left">
+          <SeriesForDecades />
+        </div>
+        <div className="col-right">
+          <GeneralInfo />
+          <WarningInfo />
+        </div>
       </div>
     );
   }

@@ -1,14 +1,36 @@
 .info {
   font-size: 0;
+  margin-top: -$margin--6xl;
+  width: 100%;
 }
 
-.general-info,
-.warning-info {
-  box-sizing: border-box;
+// .series-for-decades {
+//   box-sizing: border-box;
+//   display: inline-block;
+//   padding: $padding--xs;
+//   vertical-align: top;
+//   width: 50%;
+// }
+
+// .general-info,
+// .warning-info {
+//   box-sizing: border-box;
+//   float: right;
+//   padding: $padding--xs;
+//   width: 50%;
+// }
+
+.col-left,
+.col-right {
   display: inline-block;
-  padding: $padding--xs;
   vertical-align: top;
   width: 50%;
+}
+
+.col-right {
+  * {
+    padding: $padding--xs;
+  }
 }
 
 

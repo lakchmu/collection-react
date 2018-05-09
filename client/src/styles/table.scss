@@ -17,6 +17,7 @@ table {
 
   th,
   td {
+    border-color: $color--white;
     border-style: solid;
     border-width: 0 1px;
     font-family: Verdana, Geneva, sans-serif;
@@ -26,10 +27,11 @@ table {
   }
 
   th {
-    background-color: $color--grey-2;
+    background-color: rgba($color--grey-1, .2);
     border-color: $color--white;
     color: $color--white;
     font-weight: 700;
+    letter-spacing: 1px;
     vertical-align: middle;
 
     &:first-child {
@@ -42,7 +44,10 @@ table {
   }
 
   td {
-    border-color: $color--grey-4;
     color: $color--grey-3;
+
+    &.text-center {
+      text-align: center;
+    }
   }
 }
