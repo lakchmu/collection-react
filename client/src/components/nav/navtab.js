@@ -11,13 +11,13 @@ class Navtab extends Component {
         <div>
           <nav className="navtab">
             <ul>
-              <li><NavLink href="/" to="/">Home</NavLink></li>
+              <li><NavLink href="/home" to="/home">Home</NavLink></li>
               <li><NavLink href="/all-series/all" to="/all-series/all">All Series</NavLink></li>
               <li><NavLink href="/info" to="/info">Info</NavLink></li>
             </ul>
           </nav>
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/all-series/:year" component={Sidebar} />
           <Route exact path="/info" component={Info} />
         </div>
