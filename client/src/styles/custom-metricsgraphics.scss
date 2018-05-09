@@ -1,0 +1,38 @@
+.mg-area1-color {
+  fill: $color--orange-100;
+}
+
+.mg-line1-color {
+  stroke: $color--orange-100;
+}
+
+.mg-hover-line1-color {
+  fill: $color--orange-100;
+}
+
+.mg-line1-legend-color {
+  color: $color--orange-100;
+  fill: $color--orange-100;
+}
+
+.mg-x-axis
+.mg-y-axis {
+  text {
+    fill: $color--grey-3;
+    opacity: 1;
+  }
+}
+
+.mg-x-rug-mono,
+.mg-y-rug-mono {
+  opacity: 1;
+  stroke: $color--grey-4;
+}
+
+.mg-x-axis
+.mg-y-axis {
+  line {
+    opacity: 1;
+    stroke: $color--grey-4;
+  }
+}
