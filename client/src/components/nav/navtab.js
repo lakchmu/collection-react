@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { API_METHOD_YEARS } from '../../constants';
 import Home from '../home';
 import Sidebar from './sidebar';
 import Info from '../info';
@@ -18,8 +19,19 @@ class Navtab extends Component {
           </nav>
 
           <Route exact path="/home" component={Home} />
-          <Route exact path="/all-series/:year" component={Sidebar} />
           <Route exact path="/info" component={Info} />
+          <Route
+            exact
+            path="/all-series/:year"
+            render={props => (
+              <Sidebar
+                {...props}
+                linkTo="/all-series"
+                routePath="/all-series/:year"
+                requestPath={API_METHOD_YEARS}
+                extra="all"
+              />)}
+          />
         </div>
       </Router>
     );
