@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import Tooltip from './tooltip';
 import { getJson } from '../app-lib';
 import { API_METHOD_SERIE_FIGURINE_INFO } from '../constants';
@@ -23,24 +24,26 @@ class Card extends Component {
     const { serie } = this.props;
     const info = this.state.serieFigurineInfo;
     return (
-      <div className="card" >
-        <img className="image" src={serie.image} alt="Serie" />
-        <div className="card-body">
-          <h3 className="card-header">{serie.name}</h3>
-          <div className="card-footer">
-            <i className="fas fa-chess-queen card-icon" />
-            <strong>
-              In:
-              <Tooltip tooltipText={info.bought_figurine.join(', ') || '-'}><span>{info.bought_figurine_count}</span></Tooltip>
-              | Out:
-              <Tooltip tooltipText={info.not_bought_figurine.join(', ') || '-'}><span>{info.not_bought_figurine_count}</span></Tooltip>
-            </strong>
-            <div className="fl-right">
-              <a className="card-link" href="./#">Read More</a>
+      <Router>
+        <div className="card" >
+          <img className="image" src={serie.image} alt="Serie" />
+          <div className="card-body">
+            <h3 className="card-header">{serie.name}</h3>
+            <div className="card-footer">
+              <i className="fas fa-chess-queen card-icon" />
+              <strong>
+                In:
+                <Tooltip tooltipText={info.bought_figurine.join(', ') || '-'}><span>{info.bought_figurine_count}</span></Tooltip>
+                | Out:
+                <Tooltip tooltipText={info.not_bought_figurine.join(', ') || '-'}><span>{info.not_bought_figurine_count}</span></Tooltip>
+              </strong>
+              <div className="fl-right">
+                <Link className="card-link" href="./#" to={`/seriedetail/${serie.id}`}>Read More</Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

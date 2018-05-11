@@ -6,6 +6,10 @@ const API_METHOD_YEARS = 'getyears';
 const API_METHOD_SERIES_FOR_DECADES = 'seriesForDecades';
 const API_METHOD_GENERAL_INFO = 'generalInfo';
 const API_METHOD_FIGURINES_BY_YEAR = 'figurinesByYear';
+const API_METHOD_SERIES_DETAIL = 'getseriesdetail';
+const API_METHOD_FIGURINE = 'getfigurine';
+const API_METHOD_FIGURINE_OF_SERIES = 'getfigurineofseries';
+const API_METHOD_COST_OF_SERIES_FIGURINE = 'getcostofseriesfigurine';
 
 export {
   API_END_POINT,
@@ -16,4 +20,8 @@ export {
   API_METHOD_SERIES_FOR_DECADES,
   API_METHOD_GENERAL_INFO,
   API_METHOD_FIGURINES_BY_YEAR,
+  API_METHOD_SERIES_DETAIL,
+  API_METHOD_FIGURINE,
+  API_METHOD_FIGURINE_OF_SERIES,
+  API_METHOD_COST_OF_SERIES_FIGURINE,
 };

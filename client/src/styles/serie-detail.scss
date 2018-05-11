@@ -1,0 +1,32 @@
+.serie-detail {
+  h2 {
+    color: $color--grey-2;
+    text-transform: capitalize;
+
+    small {
+      font-style: italic;
+    }
+  }
+
+  img {
+    border: 1px solid $color--grey-4;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: $padding--xs;
+    width: auto;
+  }
+
+  .image {
+    padding-bottom: $padding--xs;
+  }
+
+  a {
+    color: $color--grey-3;
+  }
+
+  .fa-pencil-alt {
+    &:hover {
+      color: $color--orange-100;
+    }
+  }
+}

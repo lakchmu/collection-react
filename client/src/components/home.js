@@ -3,6 +3,7 @@ import { getJson } from '../app-lib';
 import { API_METHOD_SERIES } from '../constants';
 import Card from './card';
 
+
 class Home extends Component {
   constructor(props) {
     super(props);

@@ -4,6 +4,7 @@ import { API_METHOD_YEARS } from '../../constants';
 import Home from '../home';
 import Sidebar from './sidebar';
 import Info from '../info';
+import SerieDetail from '../serie-detail';
 
 class Navtab extends Component {
   render() {
@@ -31,6 +32,11 @@ class Navtab extends Component {
                 requestPath={API_METHOD_YEARS}
                 extra="all"
               />)}
+          />
+          <Route
+            exact
+            path="/seriedetail/:id"
+            render={props => <SerieDetail {...props} />}
           />
         </div>
       </Router>
