@@ -5,6 +5,16 @@ h3 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 28px;
   font-weight: 400;
+
+  small {
+    color: $color--grey-3;
+    font-size: 20px;
+    font-weight: 100;
+  }
+}
+
+h2 {
+  padding-bottom: $padding--2xl;
 }
 
 p,
