@@ -5,6 +5,7 @@ import Home from '../home';
 import Sidebar from './sidebar';
 import Info from '../info';
 import SerieDetail from '../serie-detail';
+import AllSeries from '../all-series';
 
 class Navtab extends Component {
   render() {
@@ -31,6 +32,7 @@ class Navtab extends Component {
                 routePath="/all-series/:year"
                 requestPath={API_METHOD_YEARS}
                 extra="all"
+                component={AllSeries}
               />)}
           />
           <Route

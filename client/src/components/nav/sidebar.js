@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { getJson } from '../../app-lib';
-import AllSeries from '../all-series';
 
 class Sidebar extends Component {
   constructor(props) {
@@ -35,6 +34,8 @@ class Sidebar extends Component {
       );
       listItem.unshift(itemAll);
     }
+
+    const RouteComponent = this.props.component;
     return (
       <Router>
         <div>
@@ -46,7 +47,7 @@ class Sidebar extends Component {
 
           <Route
             path={this.props.routePath}
-            render={props => <AllSeries {...props} />}
+            render={props => <RouteComponent {...props} />}
           />
         </div>
       </Router>
@@ -63,6 +64,7 @@ Sidebar.propTypes = {
   linkTo: PropTypes.string.isRequired,
   routePath: PropTypes.string.isRequired,
   extra: PropTypes.string,
+  component: PropTypes.element.isRequired,
 };
 
 export default Sidebar;
