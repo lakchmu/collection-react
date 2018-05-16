@@ -6,7 +6,7 @@ import { API_METHOD_SERIES,
   API_METHOD_COST_OF_SERIES_FIGURINE,
 } from './../constants';
 import Sidebar from './nav/sidebar';
-import FigurineDetail from './figurine-detail';
+
 
 class SerieDetail extends Component {
   constructor(props) {
@@ -39,10 +39,8 @@ class SerieDetail extends Component {
           {(serie.id) ? (
             <Sidebar
               linkTo={`${this.props.match.url}/figurine`}
-              routePath={`${this.props.match.url}/figurine/:id`}
               requestPath={`${API_METHOD_FIGURINE_OF_SERIES}/${serie.id}`}
               extra="add"
-              component={FigurineDetail}
             />
           ) : ''}
         </div>

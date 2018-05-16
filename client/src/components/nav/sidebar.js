@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getJson } from '../../app-lib';
 
 class Sidebar extends Component {
@@ -35,22 +35,15 @@ class Sidebar extends Component {
       listItem.unshift(itemAll);
     }
 
-    const RouteComponent = this.props.component;
     return (
-      <Router>
-        <div>
-          <nav className="sidebar">
-            <ul>
-              {listItem}
-            </ul>
-          </nav>
+      <div>
+        <nav className="sidebar">
+          <ul>
+            {listItem}
+          </ul>
+        </nav>
 
-          <Route
-            path={this.props.routePath}
-            render={props => <RouteComponent {...props} />}
-          />
-        </div>
-      </Router>
+      </div>
     );
   }
 }
@@ -62,9 +55,7 @@ Sidebar.defaultProps = {
 Sidebar.propTypes = {
   requestPath: PropTypes.string.isRequired,
   linkTo: PropTypes.string.isRequired,
-  routePath: PropTypes.string.isRequired,
   extra: PropTypes.string,
-  component: PropTypes.element.isRequired,
 };
 
 export default Sidebar;
