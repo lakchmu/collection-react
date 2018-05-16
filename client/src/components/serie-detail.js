@@ -38,8 +38,8 @@ class SerieDetail extends Component {
         <div className="col-25">
           {(serie.id) ? (
             <Sidebar
-              linkTo={`/seriedetail/${serie.id}/figurine`}
-              routePath={`/seriedetail/${serie.id}/figurine/:id`}
+              linkTo={`${this.props.match.url}/figurine`}
+              routePath={`${this.props.match.url}/figurine/:id`}
               requestPath={`${API_METHOD_FIGURINE_OF_SERIES}/${serie.id}`}
               extra="add"
               component={FigurineDetail}
