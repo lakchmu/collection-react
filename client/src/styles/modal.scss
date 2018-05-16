@@ -29,13 +29,24 @@
     .modal-shade {
       height: 100vh;
       opacity: .75;
+      z-index: 998;
     }
 
     .modal-content {
       height: auto;
       opacity: 1;
       padding: $padding--xs-pct;
+      z-index: 999;
     }
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  [role='button'] {
+    cursor: pointer;
   }
 
   .modal-close-button {
