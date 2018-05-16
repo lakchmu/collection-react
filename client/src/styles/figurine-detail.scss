@@ -1,0 +1,36 @@
+.figurine-detail {
+  width: 100%;
+
+  h2 {
+    color: $color--grey-2;
+    text-transform: capitalize;
+  }
+
+  ul {
+
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    background-clip: content-box;
+    background-color: $color--grey-2;
+    border: 1px solid $color--grey-4;
+    display: inline-block;
+    height: 222px;
+    margin: $margin--md;
+    padding: $padding--xs;
+    vertical-align: top;
+    width: 222px;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
