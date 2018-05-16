@@ -14,7 +14,7 @@
     display: inline-block;
   }
 
-  a {
+  .modal {
     background-clip: content-box;
     background-color: $color--grey-2;
     border: 1px solid $color--grey-4;
@@ -24,9 +24,13 @@
     padding: $padding--xs;
     vertical-align: top;
     width: 222px;
+
+    &:hover {
+      border-color: $color--orange-100;
+    }
   }
 
-  img {
+  .modal-anchor {
     height: auto;
     max-width: 100%;
     position: relative;

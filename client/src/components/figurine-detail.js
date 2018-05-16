@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getJson } from './../app-lib';
 import { API_METHOD_FIGURINE, API_METHOD_SERIES, API_METHOD_PHOTO_FIGURINE } from './../constants';
+import Modal from './modal';
 
 class FigurineDetail extends Component {
   constructor(props) {
@@ -30,9 +31,17 @@ class FigurineDetail extends Component {
     const { figurine, serie, photos } = this.state;
     const imageList = photos.map(photo => (
       <li key={photo.id}>
-        <a href="./#">
-          <img src={photo.photo} alt={figurine.name} />
-        </a>
+        <Modal anchor={
+          <img
+            className="modal-anchor"
+            src={photo.photo}
+            alt={figurine.name}
+          />}
+        >
+          <div className="modal-body">
+            <img src={photo.photo} alt={figurine.name} />
+          </div>
+        </Modal>
       </li>
     ));
     console.warn(photos);
@@ -47,14 +56,24 @@ class FigurineDetail extends Component {
         <div className="gallery">
           <ul>
             <li>
-              <a href="./#">
-                <img src={serie.image} alt={serie.name} />
-              </a>
+              <Modal anchor={<img className="modal-anchor" src={serie.image} alt={serie.name} />}>
+                <div className="modal-body">
+                  <img src={serie.image} alt={serie.name} />
+                </div>
+              </Modal>
             </li>
             <li>
-              <a href="./#">
-                <img src={figurine.image} alt={figurine.name} />
-              </a>
+              <Modal anchor={
+                <img
+                  className="modal-anchor"
+                  src={figurine.image}
+                  alt={figurine.name}
+                />}
+              >
+                <div className="modal-body">
+                  <img src={figurine.image} alt={figurine.name} />
+                </div>
+              </Modal>
             </li>
             {imageList}
           </ul>
