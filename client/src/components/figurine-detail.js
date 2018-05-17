@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { getJson } from './../app-lib';
 import { API_METHOD_FIGURINE, API_METHOD_SERIES, API_METHOD_PHOTO_FIGURINE } from './../constants';
 import Modal from './modal';
+import Dropbox from './form/dropbox';
 
 class FigurineDetail extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class FigurineDetail extends Component {
         </Modal>
       </li>
     ));
-    console.warn(photos);
+    console.warn(figurine.id);
     return (
       <div className="figurine-detail" >
         <h2>{figurine.name}&nbsp;
@@ -55,6 +56,9 @@ class FigurineDetail extends Component {
         </h2>
         <div className="gallery">
           <ul>
+            <li>
+              <Dropbox figurineId={this.props.match.params.id} />
+            </li>
             <li>
               <Modal anchor={<img className="modal-anchor" src={serie.image} alt={serie.name} />}>
                 <div className="modal-body">
