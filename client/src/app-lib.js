@@ -9,14 +9,19 @@ function getResponse(response) {
   return response;
 }
 
-function request(url, method) {
+function request(url, options) {
   const headers = new Headers();
   const initOptions = {
-    method,
     headers,
+    method: options.method,
     mode: 'cors',
     cache: 'default',
   };
+  if (options.body) {
+    initOptions.body = options.body;
+  }
+
+  console.warn(initOptions);
 
   return fetch(API_END_POINT + url, initOptions)
     .then(getResponse)
@@ -26,7 +31,7 @@ function request(url, method) {
 }
 
 function getSeries() {
-  return request(API_METHOD_SERIES, 'get')
+  return request(API_METHOD_SERIES, { method: 'get' })
     .then(response => response.json())
     .catch((error) => {
       throw new Error(error.message);
@@ -34,7 +39,7 @@ function getSeries() {
 }
 
 function getCountInfo() {
-  return request(API_METHOD_COUNT, 'get')
+  return request(API_METHOD_COUNT, { method: 'get' })
     .then(response => response.json())
     .catch((error) => {
       throw new Error(error.message);
@@ -42,7 +47,7 @@ function getCountInfo() {
 }
 
 function getJson(API_METHOD) {
-  return request(API_METHOD, 'get')
+  return request(API_METHOD, { method: 'get' })
     .then(response => response.json())
     .catch((error) => {
       throw new Error(error.message);
