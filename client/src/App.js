@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PhotoProvider } from './context/photo';
 import Navbar from './components/nav/navbar';
 import Navtab from './components/nav/navtab';
 import Content from './components/content';
@@ -9,9 +10,11 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <Content>
-          <Navtab />
-        </Content>
+        <PhotoProvider>
+          <Content>
+            <Navtab />
+          </Content>
+        </PhotoProvider>
       </div>
     );
   }

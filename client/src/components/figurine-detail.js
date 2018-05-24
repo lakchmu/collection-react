@@ -4,6 +4,7 @@ import { getJson } from './../app-lib';
 import { API_METHOD_FIGURINE, API_METHOD_SERIES, API_METHOD_PHOTO_FIGURINE } from './../constants';
 import Modal from './modal';
 import Dropbox from './form/dropbox';
+import { PhotoConsumer } from '../context/photo';
 
 class FigurineDetail extends Component {
   constructor(props) {
@@ -30,59 +31,65 @@ class FigurineDetail extends Component {
 
   render() {
     const { figurine, serie, photos } = this.state;
-    const imageList = photos.map(photo => (
-      <li key={photo.id}>
-        <Modal anchor={
-          <img
-            className="modal-anchor"
-            src={photo.photo}
-            alt={figurine.name}
-          />}
-        >
-          <div className="modal-body">
-            <img src={photo.photo} alt={figurine.name} />
-          </div>
-        </Modal>
-      </li>
-    ));
-    console.warn(figurine.id);
     return (
-      <div className="figurine-detail" >
-        <h2>{figurine.name}&nbsp;
-          <small>
-            {figurine.index}&nbsp;
-            {figurine.cost} <i className="fas fa-ruble-sign" />
-          </small>
-        </h2>
-        <div className="gallery">
-          <ul>
-            <li>
-              <Dropbox figurineId={this.props.match.params.id} />
-            </li>
-            <li>
-              <Modal anchor={<img className="modal-anchor" src={serie.image} alt={serie.name} />}>
-                <div className="modal-body">
-                  <img src={serie.image} alt={serie.name} />
-                </div>
-              </Modal>
-            </li>
-            <li>
-              <Modal anchor={
-                <img
-                  className="modal-anchor"
-                  src={figurine.image}
-                  alt={figurine.name}
-                />}
-              >
-                <div className="modal-body">
-                  <img src={figurine.image} alt={figurine.name} />
-                </div>
-              </Modal>
-            </li>
-            {imageList}
-          </ul>
-        </div>
-      </div>
+      <PhotoConsumer>
+        {({ photo }) => (
+          <div className="figurine-detail" >
+            <h2>{figurine.name}&nbsp;
+              <small>
+                {figurine.index}&nbsp;
+                {figurine.cost} <i className="fas fa-ruble-sign" />
+              </small>
+            </h2>
+            <div className="gallery">
+              <ul>
+                <li>
+                  <Dropbox figurineId={this.props.match.params.id} />
+                </li>
+                <li>
+                  <Modal
+                    anchor={
+                      <img className="modal-anchor" src={serie.image} alt={serie.name} />
+                    }
+                  >
+                    <div className="modal-body">
+                      <img src={serie.image} alt={serie.name} />
+                    </div>
+                  </Modal>
+                </li>
+                <li>
+                  <Modal anchor={
+                    <img
+                      className="modal-anchor"
+                      src={figurine.image}
+                      alt={figurine.name}
+                    />}
+                  >
+                    <div className="modal-body">
+                      <img src={figurine.image} alt={figurine.name} />
+                    </div>
+                  </Modal>
+                </li>
+                {photos.concat(photo).map(ph => (
+                  <li key={ph.id}>
+                    <Modal anchor={
+                      <img
+                        className="modal-anchor"
+                        src={ph.photo}
+                        alt={figurine.name}
+                      />}
+                    >
+                      <div className="modal-body">
+                        <img src={ph.photo} alt={figurine.name} />
+                      </div>
+                    </Modal>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </PhotoConsumer>
     );
   }
 }

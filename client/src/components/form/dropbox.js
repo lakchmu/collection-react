@@ -1,30 +1,44 @@
-/* global FormData */
+/* global FormData, FileReader */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import request from '../../app-lib';
 import { API_METHOD_PHOTO_FIGURINE } from '../../constants';
+import { PhotoConsumer } from '../../context/photo';
 
 class Dropbox extends Component {
   constructor(props) {
     super(props);
-    console.warn(this.props.figurineId);
     this.input = React.createRef();
     this.handleForInput = this.handleForInput.bind(this);
   }
 
-  handleForInput() {
+  handleForInput(photo, changeFunction) {
     const oData = new FormData();
     const { files } = this.input.current;
-
-    Array.from(files).forEach((file) => {
-      oData.append('photo', file);
+    const newPhotos = {};
+    Array.from(files).forEach((file, index) => {
+      const reader = new FileReader();
+      oData.append(`[${index}]photo`, file);
+      oData.append(`[${index}]figurine`, this.props.figurineId);
+      reader.onload = ((event) => {
+        const data = event.target.result;
+        const newPhoto = { figurine: this.props.figurineId, id: 'Nan', photo: data };
+        newPhotos[index] = newPhoto;
+        photo.push(newPhoto);
+        changeFunction(photo);
+      });
+      reader.readAsDataURL(file);
     });
 
-    oData.append('figurine', this.props.figurineId);
 
     request(`${API_METHOD_PHOTO_FIGURINE}/`, { method: 'post', body: oData })
-      .then(response => console.warn(response))
+      .then(response => response.json())
+      .then((response) => {
+        response.reverse().forEach((item, index) => {
+          newPhotos[index].id = item.id;
+        });
+      })
       .catch((error) => {
         throw new Error(error.message);
       });
@@ -32,23 +46,27 @@ class Dropbox extends Component {
 
   render() {
     return (
-      <form className="dropbox" encType="multipart/form-data" method="post">
-        <input
-          id="dropbox"
-          name="dropbox"
-          alt="photo figurine input"
-          type="file"
-          multiple
-          onChange={this.handleForInput}
-          ref={this.input}
-        />
-        <label htmlFor="dropbox">
-          <span className="content-wrapper">
-            <i className="far fa-image" />
-            <p>Drop files here</p>
-          </span>
-        </label>
-      </form>
+      <PhotoConsumer>
+        {({ photo, changePhoto }) => (
+          <form className="dropbox" encType="multipart/form-data" method="post">
+            <input
+              id="dropbox"
+              name="dropbox"
+              alt="photo figurine input"
+              type="file"
+              multiple
+              onChange={() => { this.handleForInput(photo, changePhoto); }}
+              ref={this.input}
+            />
+            <label htmlFor="dropbox">
+              <span className="content-wrapper">
+                <i className="far fa-image" />
+                <p>Drop files here</p>
+              </span>
+            </label>
+          </form>
+        )}
+      </PhotoConsumer>
     );
   }
 }
