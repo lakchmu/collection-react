@@ -21,8 +21,6 @@ function request(url, options) {
     initOptions.body = options.body;
   }
 
-  console.warn(initOptions);
-
   return fetch(API_END_POINT + url, initOptions)
     .then(getResponse)
     .catch((error) => {
