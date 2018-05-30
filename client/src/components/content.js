@@ -6,6 +6,8 @@ import Home from './home';
 import Sidebar from './nav/sidebar';
 import Info from './info';
 import SerieDetail from './serie-detail';
+import FormSerie from './form/form-serie';
+// import NewSerie from './form/new-serie';
 import AllSeries from './all-series';
 import FigurineDetail from './figurine-detail';
 
@@ -17,6 +19,11 @@ class Content extends Component {
           {this.props.children}
 
           <Route exact path="/home" component={Home} />
+          <Route
+            exact
+            path="/newserie"
+            render={props => <FormSerie {...props} header="New serie" />}
+          />
           <Route exact path="/info" component={Info} />
           <Route
             exact
@@ -33,6 +40,11 @@ class Content extends Component {
             exact
             path="/seriedetail/:id"
             render={props => <SerieDetail {...props} />}
+          />
+          <Route
+            exact
+            path="/editserie/:id"
+            render={props => <FormSerie {...props} header="Edit serie" />}
           />
           <Route
             path="/all-series/:year"

@@ -4,6 +4,9 @@
 @import 'margins';
 @import 'grid';
 @import 'typography';
+@import 'form/input';
+@import 'form/select';
+@import 'form/checkbox';
 @import 'table';
 @import 'custom-metricsgraphics';
 @import 'content';
@@ -22,3 +25,4 @@
 @import 'serie-detail';
 @import 'figurine-detail';
 @import 'form/dropbox';
+@import 'form-serie';

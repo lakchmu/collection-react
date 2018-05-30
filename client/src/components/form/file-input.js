@@ -1,0 +1,55 @@
+/* global FileReader */
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class FileInput extends Component {
+  constructor(props) {
+    super(props);
+    this.input = React.createRef();
+    this.image = React.createRef();
+    this.handleForInput = this.handleForInput.bind(this);
+  }
+
+  handleForInput() {
+    const file = this.input.current.files[0];
+    console.warn(this.anchor);
+    const reader = new FileReader();
+    reader.onload = ((event) => {
+      this.image.current.src = event.target.result;
+    });
+    reader.readAsDataURL(file);
+  }
+
+  render() {
+    return (
+      <div className="dropbox" name={this.props.name}>
+        <input
+          id={this.props.name}
+          name={this.props.name}
+          alt="photo figurine input"
+          type="file"
+          multiple
+          onChange={this.handleForInput}
+          ref={this.input}
+        />
+        <label htmlFor={this.props.name}>
+          <span className="content-wrapper">
+            <i className="far fa-image" />
+            <p>Select {this.props.name} here</p>
+          </span>
+        </label>
+        <div className="image-cell">
+          <span>File not selected</span>
+          <img src="" alt="" ref={this.image} />
+        </div>
+      </div>
+    );
+  }
+}
+
+FileInput.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default FileInput;

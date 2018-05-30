@@ -1,0 +1,55 @@
+.checkbox {
+  display: inline-block;
+  width: auto;
+
+  input {
+    border: 0;
+    height: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 0;
+
+    &:checked {
+      & + label {
+        &::before {
+          content: '\f14a';
+        }
+      }
+    }
+  }
+
+  label {
+    color: $color--grey-3;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 400;
+    margin-right: $margin--xs;
+    transition: all .3s ease-in-out;
+    width: auto;
+
+    &::before {
+      content: '\f0c8';
+    }
+
+    &:hover {
+      color: $color--orange-100;
+    }
+  }
+
+  & + .label {
+    color: $color--grey-3;
+    display: inline-block;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    line-height: 1.6em;
+    margin-bottom: $margin--xs;
+    margin-right: $margin--md;
+    width: auto;
+
+    span {
+      color: $color--red-100;
+    }
+  }
+}

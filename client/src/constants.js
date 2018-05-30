@@ -11,6 +11,7 @@ const API_METHOD_FIGURINE = 'getfigurine';
 const API_METHOD_FIGURINE_OF_SERIES = 'getfigurineofseries';
 const API_METHOD_COST_OF_SERIES_FIGURINE = 'getcostofseriesfigurine';
 const API_METHOD_PHOTO_FIGURINE = 'photofigurine';
+const API_METHOD_FEATURES = 'getfeature';
 
 export {
   API_END_POINT,
@@ -26,4 +27,5 @@ export {
   API_METHOD_FIGURINE_OF_SERIES,
   API_METHOD_COST_OF_SERIES_FIGURINE,
   API_METHOD_PHOTO_FIGURINE,
+  API_METHOD_FEATURES,
 };

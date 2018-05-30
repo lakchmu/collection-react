@@ -19,7 +19,8 @@ h2 {
 }
 
 p,
-.text-normall {
+.text-normall,
+.info-text {
   color: $color--grey-3;
   font-size: 15px;
   font-weight: 400;
@@ -34,4 +35,15 @@ p,
 
 strong {
   font-weight: 600;
+}
+
+.info-text {
+  color: $color--orange-100;
+  margin-left: $margin--sm;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+
+  &.show {
+    opacity: 1;
+  }
 }

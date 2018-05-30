@@ -1,0 +1,60 @@
+input {
+  &[type='text'],
+  &[type='number'] {
+    border: 1px solid $color--grey-4;
+    box-sizing: border-box;
+    color: $color--grey-3;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    line-height: 1.6em;
+    outline: none;
+    padding: $padding--sm;
+    transition: all .3s ease-in-out;
+    vertical-align: middle;
+    width: 100%;
+
+    &:hover {
+      border-color: $color--orange-100;
+    }
+  }
+
+  &[type='submit'] {
+    background-color: $color--grey-6;
+    border: 1px solid $color--grey-4;
+    color: $color--grey-3;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    margin-bottom: $margin--lg;
+    margin-top: $margin--md;
+    min-width: 150px;
+    padding: 8px 5px;
+    transition: all .3s ease-in-out;
+    vertical-align: middle;
+    width: auto;
+
+    &:focus {
+      border-color: $color--orange-100;
+      color: $color--orange-100;
+      outline: none;
+    }
+
+    &:hover {
+      border-color: $color--orange-100;
+      color: $color--orange-100;
+    }
+  }
+}
+
+label {
+  color: $color--grey-3;
+  display: block;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
+  margin-bottom: $margin--xs;
+
+  span {
+    color: $color--red-100;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { getJson } from './../app-lib';
 import { API_METHOD_SERIES,
   API_METHOD_FIGURINE_OF_SERIES,
@@ -24,7 +25,7 @@ class SerieDetail extends Component {
       <div className="serie-detail">
         <h2>
           {serie.name}
-          <small> {serie.year} <a href="./#"><i className="fas fa-pencil-alt" /></a></small>
+          <small> {serie.year} <NavLink href={`/editserie/${serie.id}`} to={`/editserie/${serie.id}`}><i className="fas fa-pencil-alt" /></NavLink></small>
         </h2>
         <div className="col-50">
           <img className="image" src={serie.image} alt="" />
