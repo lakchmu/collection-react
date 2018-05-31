@@ -5,14 +5,16 @@ import PropTypes from 'prop-types';
 import request, { getJson } from '../../app-lib';
 import { API_METHOD_FEATURES, API_METHOD_SERIES } from '../../constants';
 import FileInput from './file-input';
+import FormMetaFigurine from './form-metafigurine';
 
 class FormSerie extends Component {
   constructor(props) {
     super(props);
     this.form = React.createRef();
+    this.formMF = React.createRef();
     this.infoText = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { features: [], serie: {} };
+    this.state = { features: [], serie: { figurines: [] } };
     getJson(API_METHOD_FEATURES)
       .then(response => this.setState({ features: response.results }));
     if (this.props.match.params.id) {
@@ -29,7 +31,6 @@ class FormSerie extends Component {
   }
 
   fillInForm() {
-    console.warn(this.form);
     const form = this.form.current;
     const { serie } = this.state;
     const image = form.querySelector('.dropbox[name="image"] .image-cell img');
@@ -60,6 +61,17 @@ class FormSerie extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const oData = new FormData(this.form.current);
+    const formElements = Array.from(this.formMF.current.elements);
+    console.warn(oData.getAll('feature'));
+    for (let i = 0, j = 0; i < formElements.length; i += 2, j += 1) {
+      oData.append(`figurines[${j}]id`, this.state.serie.figurines[j].id);
+      oData.append(`figurines[${j}]name`, formElements[i].value);
+      oData.append(`figurines[${j}]index`, formElements[i + 1].value);
+    }
+    console.warn(oData.getAll('figurines.id'));
+    console.warn(oData.getAll('figurines.name'));
+    console.warn(oData.getAll('figurines.index'));
+
     let requestUrl = `${API_METHOD_SERIES}/`; // Create new serie
     let requestMethod = 'post';
 
@@ -90,7 +102,8 @@ class FormSerie extends Component {
   }
 
   render() {
-    const { features } = this.state;
+    const { features, serie } = this.state;
+    console.warn(this.state.serie);
     return (
       <div className="form-serie">
         <h2>{this.props.header}</h2>
@@ -138,35 +151,37 @@ class FormSerie extends Component {
             <FileInput name="photo" />
           </div>
           <div className="row">
-            <label htmlFor="serie-year">Producer <span>*</span></label>
-            <select name="company">
-              <option value="kinder">Kinder</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div className="row">
-            <label htmlFor="serie-year">Made in <span>*</span></label>
-            <select name="made_in">
-              <option value="Russia">Russia</option>
-              <option value="Germany">Germany</option>
-              <option value="Italy">Italy</option>
-              <option value="Europe">Europe</option>
-            </select>
-          </div>
-          <div className="row">
-            <label htmlFor="serie-year">Status <span>*</span></label>
-            <select name="status">
-              <option value="bought">Bought</option>
-              <option value="not_bought">Not Bought</option>
-              <option value="want">Want</option>
-            </select>
-          </div>
-          <div className="row">
-            <label htmlFor="serie-year">Type <span>*</span></label>
-            <select name="type">
-              <option value="sectional">Sectional</option>
-              <option value="molded">Molded</option>
-            </select>
+            <div className="col-25">
+              <label htmlFor="serie-year">Producer <span>*</span></label>
+              <select name="company">
+                <option value="kinder">Kinder</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div className="col-25">
+              <label htmlFor="serie-year">Made in <span>*</span></label>
+              <select name="made_in">
+                <option value="Russia">Russia</option>
+                <option value="Germany">Germany</option>
+                <option value="Italy">Italy</option>
+                <option value="Europe">Europe</option>
+              </select>
+            </div>
+            <div className="col-25">
+              <label htmlFor="serie-year">Status <span>*</span></label>
+              <select name="status">
+                <option value="bought">Bought</option>
+                <option value="not_bought">Not Bought</option>
+                <option value="want">Want</option>
+              </select>
+            </div>
+            <div className="col-25">
+              <label htmlFor="serie-year">Type <span>*</span></label>
+              <select name="type">
+                <option value="sectional">Sectional</option>
+                <option value="molded">Molded</option>
+              </select>
+            </div>
           </div>
           <div className="row">
             <label htmlFor="serie-year">Features <span>*</span></label>
@@ -192,6 +207,16 @@ class FormSerie extends Component {
           <span className="info-text" ref={this.infoText}>
             {this.props.match.params.id ? 'Changes saved' : 'New series created'}
           </span>
+        </form>
+        <h2>Meta Figurines</h2>
+        <form ref={this.formMF}>
+          {serie.figurines.map(figurine => (
+            <FormMetaFigurine
+              name={figurine.name}
+              index={figurine.index}
+              key={`${figurine.name}`}
+            />))
+          }
         </form>
       </div>
     );

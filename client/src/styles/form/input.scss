@@ -16,6 +16,11 @@ input {
     &:hover {
       border-color: $color--orange-100;
     }
+
+    &::placeholder {
+      font-size: 12px;
+      font-style: italic;
+    }
   }
 
   &[type='submit'] {
