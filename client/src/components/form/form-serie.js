@@ -16,7 +16,6 @@ class FormSerie extends Component {
     this.formMF = React.createRef();
     this.infoText = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.mFigurineChange = this.mFigurineChange.bind(this);
     this.headerAddMFigurine = this.headerAddMFigurine.bind(this);
     this.state = { features: [], serie: { figurines: [] } };
     getJson(API_METHOD_FEATURES)
@@ -100,12 +99,6 @@ class FormSerie extends Component {
   headerAddMFigurine() {
     const newSerie = this.state.serie;
     newSerie.figurines.push({ id: '', name: '', index: '' });
-    this.setState({ serie: newSerie });
-  }
-
-  mFigurineChange(event, index) {
-    const newSerie = this.state.serie;
-    newSerie.figurines[index][event.target.name] = event.target.value;
     this.setState({ serie: newSerie });
   }
 
@@ -228,7 +221,6 @@ class FormSerie extends Component {
             <FormMetaFigurine
               name={figurine.name}
               index={figurine.index}
-              onKeyUp={e => this.mFigurineChange(e, index)}
               // eslint-disable-next-line react/no-array-index-key
               key={`${index}`}
             />
