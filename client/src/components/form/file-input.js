@@ -13,7 +13,6 @@ class FileInput extends Component {
 
   handleForInput() {
     const file = this.input.current.files[0];
-    console.warn(this.anchor);
     const reader = new FileReader();
     reader.onload = ((event) => {
       this.image.current.src = event.target.result;

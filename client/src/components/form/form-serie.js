@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Select2 from 'react-select2-wrapper';
+import 'react-select2-wrapper/css/select2.css';
 import request, { getJson } from '../../app-lib';
 import { API_METHOD_FEATURES, API_METHOD_SERIES } from '../../constants';
 import FileInput from './file-input';
@@ -46,10 +48,6 @@ class FormSerie extends Component {
     form.made_in.value = serie.made_in;
     form.status.value = serie.status;
     form.type.value = serie.type;
-    serie.feature.forEach((feature) => {
-      const option = form.feature.querySelector(`option[value="${feature}"]`);
-      option.selected = true;
-    });
     if (serie.show_on_the_home) {
       form.show_on_home.checked = 'checked';
     }
@@ -62,15 +60,11 @@ class FormSerie extends Component {
     event.preventDefault();
     const oData = new FormData(this.form.current);
     const formElements = Array.from(this.formMF.current.elements);
-    console.warn(oData.getAll('feature'));
     for (let i = 0, j = 0; i < formElements.length; i += 2, j += 1) {
       oData.append(`figurines[${j}]id`, this.state.serie.figurines[j].id);
       oData.append(`figurines[${j}]name`, formElements[i].value);
       oData.append(`figurines[${j}]index`, formElements[i + 1].value);
     }
-    console.warn(oData.getAll('figurines.id'));
-    console.warn(oData.getAll('figurines.name'));
-    console.warn(oData.getAll('figurines.index'));
 
     let requestUrl = `${API_METHOD_SERIES}/`; // Create new serie
     let requestMethod = 'post';
@@ -185,11 +179,18 @@ class FormSerie extends Component {
           </div>
           <div className="row">
             <label htmlFor="serie-year">Features <span>*</span></label>
-            <select name="feature" multiple>
-              {features.map(feature => (
-                <option value={feature.id} key={feature.id}>{feature.title}</option>
-              ))}
-            </select>
+            <Select2
+              className="select"
+              multiple
+              value={serie.feature}
+              data={features.map(feature => ({ id: feature.id, text: feature.title }))}
+              options={
+                {
+                  placeholder: 'Select features',
+                  allowClear: true,
+                }
+              }
+            />
           </div>
           <div className="row">
             <div className="checkbox">
