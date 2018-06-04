@@ -26,6 +26,7 @@ class FormMetaFigurine extends Component {
             type="text"
             placeholder="Figurine Name"
             ref={this.name}
+            onKeyUp={this.props.onKeyUp}
           />
         </div>
         <div className="col-25">
@@ -34,6 +35,7 @@ class FormMetaFigurine extends Component {
             type="text"
             placeholder="Index"
             ref={this.index}
+            onKeyUp={this.props.onKeyUp}
           />
         </div>
       </div>
@@ -49,6 +51,7 @@ FormMetaFigurine.defaultProps = {
 FormMetaFigurine.propTypes = {
   name: PropTypes.string,
   index: PropTypes.string,
+  onKeyUp: PropTypes.func.isRequired,
 };
 
 export default FormMetaFigurine;

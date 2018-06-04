@@ -16,6 +16,8 @@ class FormSerie extends Component {
     this.formMF = React.createRef();
     this.infoText = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.mFigurineChange = this.mFigurineChange.bind(this);
+    this.headerAddMFigurine = this.headerAddMFigurine.bind(this);
     this.state = { features: [], serie: { figurines: [] } };
     getJson(API_METHOD_FEATURES)
       .then(response => this.setState({ features: response.results }));
@@ -95,9 +97,20 @@ class FormSerie extends Component {
       });
   }
 
+  headerAddMFigurine() {
+    const newSerie = this.state.serie;
+    newSerie.figurines.push({ id: '', name: '', index: '' });
+    this.setState({ serie: newSerie });
+  }
+
+  mFigurineChange(event, index) {
+    const newSerie = this.state.serie;
+    newSerie.figurines[index][event.target.name] = event.target.value;
+    this.setState({ serie: newSerie });
+  }
+
   render() {
     const { features, serie } = this.state;
-    console.warn(this.state.serie);
     return (
       <div className="form-serie">
         <h2>{this.props.header}</h2>
@@ -211,14 +224,20 @@ class FormSerie extends Component {
         </form>
         <h2>Meta Figurines</h2>
         <form ref={this.formMF}>
-          {serie.figurines.map(figurine => (
+          {serie.figurines.map((figurine, index) => (
             <FormMetaFigurine
               name={figurine.name}
               index={figurine.index}
-              key={`${figurine.name}`}
-            />))
+              onKeyUp={e => this.mFigurineChange(e, index)}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`${index}`}
+            />
+          ))
           }
         </form>
+        <button className="button-success" onClick={this.headerAddMFigurine}>
+          + Meta Figurine
+        </button>
       </div>
     );
   }

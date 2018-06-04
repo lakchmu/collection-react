@@ -1,0 +1,15 @@
+.button-success {
+  background-color: transparent;
+  border: 0;
+  color: $color--grey-3;
+  cursor: pointer;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
+  outline: none;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    color: $color--orange-100;
+  }
+}
