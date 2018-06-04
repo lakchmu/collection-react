@@ -92,7 +92,7 @@ class FormSerie extends Component {
         setTimeout(() => infoText.classList.remove('show'), 2000);
       })
       .catch((error) => {
-        throw new Error(error.message);
+        console.warn(new Error(error.message));
       });
   }
 
