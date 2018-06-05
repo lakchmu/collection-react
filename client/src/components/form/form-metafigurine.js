@@ -22,11 +22,14 @@ class FormMetaFigurine extends Component {
       <div className="row">
         <div className="col-75">
           <input
+            className="form-control"
             name="name"
             type="text"
             placeholder="Figurine Name"
             ref={this.name}
+            required
           />
+          <div className="invalid-feedback" />
         </div>
         <div className="col-25">
           <input

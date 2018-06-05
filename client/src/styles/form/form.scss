@@ -1,0 +1,16 @@
+.was-validated {
+  .form-control {
+    &~.invalid-feedback {
+      color:  $color--red-100;
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 14px;
+      line-height: 1.6em;
+      padding: $padding--sm 0;
+      transition: all .3s ease-in-out;
+    }
+
+    &:valid~.invalid-feedback {
+      display: none;
+    }
+  }
+}

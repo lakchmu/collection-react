@@ -25,12 +25,14 @@ class FileInput extends Component {
       <div className="dropbox" name={this.props.name}>
         <input
           id={this.props.name}
+          className={this.props.className}
           name={this.props.name}
           alt="photo figurine input"
           type="file"
           multiple
           onChange={this.handleForInput}
           ref={this.input}
+          required={this.props.required}
         />
         <label htmlFor={this.props.name}>
           <span className="content-wrapper">
@@ -42,13 +44,21 @@ class FileInput extends Component {
           <span>File not selected</span>
           <img src="" alt="" ref={this.image} />
         </div>
+        {(this.props.className) ? <div className="invalid-feedback" /> : ''}
       </div>
     );
   }
 }
 
+FileInput.defaultProps = {
+  required: false,
+  className: '',
+};
+
 FileInput.propTypes = {
   name: PropTypes.string.isRequired,
+  required: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default FileInput;
