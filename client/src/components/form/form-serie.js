@@ -1,4 +1,4 @@
-/* global FormData */
+/* global FormData, window, document */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -30,11 +30,24 @@ class FormSerie extends Component {
     this.submit = this.submit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.headerAddMFigurine = this.headerAddMFigurine.bind(this);
-    this.state = { features: [], serie: { figurines: [] }, isValidated: false };
+    this.state = {
+      features: [],
+      serie: { figurines: [] },
+      isValidated: false,
+      action: 'none',
+    };
     getJson(API_METHOD_FEATURES)
       .then(response => this.setState({ features: response.results }));
     if (this.props.match.params.id) {
       this.getSeries();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.action === 'add-meta-figurine-form') {
+      window.scroll({ top: document.body.clientHeight, left: 0, behavior: 'smooth' });
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ action: 'none' });
     }
   }
 
@@ -121,7 +134,7 @@ class FormSerie extends Component {
   headerAddMFigurine() {
     const newSerie = this.state.serie;
     newSerie.figurines.push({ id: '', name: '', index: '' });
-    this.setState({ serie: newSerie });
+    this.setState({ serie: newSerie, action: 'add-meta-figurine-form' });
   }
 
   render() {
