@@ -1,0 +1,15 @@
+.meta-figurine-form {
+  .fa-times,
+  .fa-undo {
+    background-color: transparent;
+    border: 0;
+    color: $color--red-100;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 14px;
+  }
+
+  .fa-undo {
+    color: $color--orange-100;
+  }
+}

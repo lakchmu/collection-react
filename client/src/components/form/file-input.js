@@ -52,13 +52,13 @@ class FileInput extends Component {
 }
 
 FileInput.defaultProps = {
-  required: false,
+  required: '',
   className: '',
 };
 
 FileInput.propTypes = {
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
+  required: PropTypes.string,
   className: PropTypes.string,
 };
 

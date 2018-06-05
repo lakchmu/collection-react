@@ -86,10 +86,13 @@ class FormSerie extends Component {
   submit() {
     const oData = new FormData(this.form.current);
     const formElements = Array.from(this.formMF.current.elements);
-    for (let i = 0, j = 0; i < formElements.length; i += 2, j += 1) {
-      oData.append(`figurines[${j}]id`, this.state.serie.figurines[j].id);
-      oData.append(`figurines[${j}]name`, formElements[i].value);
-      oData.append(`figurines[${j}]index`, formElements[i + 1].value);
+    for (let i = 0, j = 0; i < formElements.length; i += 3, j += 1) {
+      const del = this.state.serie.figurines[j].delete;
+      if (del !== true) {
+        oData.append(`figurines[${j}]id`, this.state.serie.figurines[j].id);
+        oData.append(`figurines[${j}]name`, formElements[i].value);
+        oData.append(`figurines[${j}]index`, formElements[i + 1].value);
+      }
     }
 
     let requestUrl = `${API_METHOD_SERIES}/`; // Create new serie
@@ -126,6 +129,7 @@ class FormSerie extends Component {
     const serieFormValid = FormSerie.validate(this.form.current);
     const mFigurineFormValid = FormSerie.validate(this.formMF.current);
     if (serieFormValid && mFigurineFormValid) {
+      console.warn('forms valid');
       this.submit();
     }
     this.setState({ isValidated: true });
@@ -135,6 +139,16 @@ class FormSerie extends Component {
     const newSerie = this.state.serie;
     newSerie.figurines.push({ id: '', name: '', index: '' });
     this.setState({ serie: newSerie, action: 'add-meta-figurine-form' });
+  }
+
+  handlerDeleteMFigurine(event, index) {
+    event.preventDefault();
+    event.target.classList.toggle('fa-times');
+    event.target.classList.toggle('fa-undo');
+    const newSerie = this.state.serie;
+    const del = newSerie.figurines[index].delete;
+    newSerie.figurines[index].delete = (del) ? !del : true;
+    this.setState({ serie: newSerie });
   }
 
   render() {
@@ -195,7 +209,11 @@ class FormSerie extends Component {
           </div>
           <div className="row dropbox-group">
             <FileInput name="image" />
-            <FileInput name="photo" className="form-control" required />
+            <FileInput
+              name="photo"
+              className="form-control"
+              required={(this.props.header === 'New serie') ? 'required' : ''}
+            />
           </div>
           <div className="row">
             <div className="col-25">
@@ -270,6 +288,7 @@ class FormSerie extends Component {
             <FormMetaFigurine
               name={figurine.name}
               index={figurine.index}
+              onClick={e => this.handlerDeleteMFigurine(e, index)}
               // eslint-disable-next-line react/no-array-index-key
               key={`${index}`}
             />

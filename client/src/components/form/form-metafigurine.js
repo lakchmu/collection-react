@@ -19,7 +19,7 @@ class FormMetaFigurine extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="meta-figurine-form row">
         <div className="col-75">
           <input
             className="form-control"
@@ -32,12 +32,19 @@ class FormMetaFigurine extends Component {
           <div className="invalid-feedback" />
         </div>
         <div className="col-25">
-          <input
-            name="index"
-            type="text"
-            placeholder="Index"
-            ref={this.index}
-          />
+          <div className="row">
+            <div className="col-75">
+              <input
+                name="index"
+                type="text"
+                placeholder="Index"
+                ref={this.index}
+              />
+            </div>
+            <div className="col-25">
+              <button className="fas fa-times" onClick={this.props.onClick} />
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -50,6 +57,7 @@ FormMetaFigurine.defaultProps = {
 };
 
 FormMetaFigurine.propTypes = {
+  onClick: PropTypes.func.isRequired,
   name: PropTypes.string,
   index: PropTypes.string,
 };
