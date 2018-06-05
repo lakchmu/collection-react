@@ -37,14 +37,15 @@ class FileInput extends Component {
         <label htmlFor={this.props.name}>
           <span className="content-wrapper">
             <i className="far fa-image" />
-            <p>Select {this.props.name} here</p>
+            <p>Select {this.props.name}{this.props.required ? <span>*</span> : ''} here</p>
           </span>
         </label>
         <div className="image-cell">
-          <span>File not selected</span>
+          <span className={this.props.className ? 'invalid-feedback' : ''}>
+            File not selected <br />
+          </span>
           <img src="" alt="" ref={this.image} />
         </div>
-        {(this.props.className) ? <div className="invalid-feedback" /> : ''}
       </div>
     );
   }

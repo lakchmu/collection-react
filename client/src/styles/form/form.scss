@@ -1,7 +1,8 @@
 .was-validated {
   .form-control {
-    &~.invalid-feedback {
-      color:  $color--red-100;
+    &~.invalid-feedback,
+    &~.image-cell .invalid-feedback {
+      color:  $color--red-100 !important;
       font-family: Verdana, Geneva, sans-serif;
       font-size: 14px;
       line-height: 1.6em;
