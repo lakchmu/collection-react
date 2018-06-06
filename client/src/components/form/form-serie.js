@@ -27,6 +27,7 @@ class FormSerie extends Component {
     this.form = React.createRef();
     this.formMF = React.createRef();
     this.infoText = React.createRef();
+    this.errorText = React.createRef();
     this.submit = this.submit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.headerAddMFigurine = this.headerAddMFigurine.bind(this);
@@ -132,12 +133,15 @@ class FormSerie extends Component {
         this.setState({ serie: newSerie });
       })
       .then(() => {
+        this.errorText.current.classList.remove('show');
         const infoText = this.infoText.current;
         infoText.classList.add('show');
         setTimeout(() => infoText.classList.remove('show'), 2000);
       })
       .catch((error) => {
         console.warn(new Error(error.message));
+        const errorText = this.errorText.current;
+        errorText.classList.add('show');
       });
   }
 
@@ -306,6 +310,9 @@ class FormSerie extends Component {
             <input type="submit" value="Submit" />
             <span className="info-text" ref={this.infoText}>
               {this.props.match.params.id ? 'Changes saved' : 'New series created'}
+            </span>
+            <span className="error-text" ref={this.errorText}>
+              The server responded with an error
             </span>
           </div>
         </form>
