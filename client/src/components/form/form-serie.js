@@ -108,6 +108,13 @@ class FormSerie extends Component {
       if (!this.form.current.photo.files.length) {
         oData.delete('photo');
       }
+    } else {
+      for (let i = 0, j = 0; i < formElements.length; i += 3, j += 1) {
+        const del = this.state.serie.figurines[j].delete;
+        if (del !== true) {
+          oData.append(`figurines[${j}]series`, '');
+        }
+      }
     }
 
     request(
