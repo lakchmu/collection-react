@@ -114,6 +114,16 @@ class FormSerie extends Component {
       requestUrl,
       { method: requestMethod, body: oData },
     )
+      .then(response => response.json())
+      .then((serie) => {
+        const newSerie = this.state.serie;
+        newSerie.figurines = [];
+        this.setState({ serie: newSerie });
+        serie.figurines.forEach((item, index) => {
+          newSerie.figurines[index] = item;
+        });
+        this.setState({ serie: newSerie });
+      })
       .then(() => {
         const infoText = this.infoText.current;
         infoText.classList.add('show');
@@ -145,6 +155,16 @@ class FormSerie extends Component {
     event.preventDefault();
     event.target.classList.toggle('fa-times');
     event.target.classList.toggle('fa-undo');
+    const formLine = event.target.closest('.meta-figurine-form');
+    formLine.querySelectorAll('input')
+      .forEach((input) => {
+        if (input.hasAttribute('disabled')) {
+          input.removeAttribute('disabled');
+        } else {
+          input.setAttribute('disabled', 'disabled');
+        }
+      });
+    formLine.classList.toggle('disabled');
     const newSerie = this.state.serie;
     const del = newSerie.figurines[index].delete;
     newSerie.figurines[index].delete = (del) ? !del : true;

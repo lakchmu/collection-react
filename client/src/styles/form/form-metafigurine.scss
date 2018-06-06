@@ -1,4 +1,7 @@
 .meta-figurine-form {
+  position: relative;
+  z-index: 1;
+
   .fa-times,
   .fa-undo {
     background-color: transparent;
@@ -6,10 +9,30 @@
     color: $color--red-100;
     cursor: pointer;
     font-size: 16px;
-    margin: 14px;
+    margin: 13px;
   }
 
   .fa-undo {
     color: $color--orange-100;
+  }
+
+  &::before {
+    background-color: $color--grey-4;
+    content: '';
+    height: 1px;
+    left: 0;
+    margin-top: -2px;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translate(-10px, -50%);
+    z-index: 2;
+  }
+
+  &.disabled {
+    &::before {
+      right: 41px;
+      transition: all 1s ease-in-out;
+    }
   }
 }

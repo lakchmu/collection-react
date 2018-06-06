@@ -32,18 +32,16 @@ class FormMetaFigurine extends Component {
           <div className="invalid-feedback" />
         </div>
         <div className="col-25">
-          <div className="row">
-            <div className="col-75">
-              <input
-                name="index"
-                type="text"
-                placeholder="Index"
-                ref={this.index}
-              />
-            </div>
-            <div className="col-25">
-              <button className="fas fa-times" onClick={this.props.onClick} />
-            </div>
+          <div className="col-75">
+            <input
+              name="index"
+              type="text"
+              placeholder="Index"
+              ref={this.index}
+            />
+          </div>
+          <div className="col-25">
+            <button className="fas fa-times" onClick={this.props.onClick} />
           </div>
         </div>
       </div>
