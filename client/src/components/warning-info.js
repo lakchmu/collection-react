@@ -6,7 +6,7 @@ class WarningInfo extends Component {
   constructor(props) {
     super(props);
     this.state = { series: [] };
-    getJson(`${API_METHOD_SERIES}?figurine__isnull=True`).then(response => this.setState({ series: response.results }));
+    getJson(`${API_METHOD_SERIES}?figurines__isnull=True`).then(response => this.setState({ series: response.results }));
   }
 
   render() {

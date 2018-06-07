@@ -18,17 +18,19 @@ class Info extends Component {
   render() {
     return (
       <div className="info">
-        <MetricsGraphics
-          animate_on_load
-          area={false}
-          data={this.state.data}
-          width={978}
-          height={250}
-          x_accessor="year"
-          y_accessor="figurines"
-          x_rug="true"
-          xax_format={a => a}
-        />
+        { (this.state.data.length > 0) ? (
+          <MetricsGraphics
+            animate_on_load
+            area={false}
+            data={this.state.data}
+            width={978}
+            height={250}
+            x_accessor="year"
+            y_accessor="figurines"
+            x_rug="true"
+            xax_format={a => a}
+          />) : ''
+        }
         <div className="col-left">
           <SeriesForDecades />
         </div>
