@@ -10,6 +10,7 @@ import FormSerie from './form/form-serie';
 // import NewSerie from './form/new-serie';
 import AllSeries from './all-series';
 import FigurineDetail from './figurine-detail';
+import FormAddFigurine from './form/form-add-figurine';
 
 class Content extends Component {
   render() {
@@ -51,8 +52,14 @@ class Content extends Component {
             render={props => <AllSeries {...props} />}
           />
           <Route
-            path="/seriedetail/:id/figurine/:id"
+            path="/seriedetail/:id/figurine/add"
+            render={props => <FormAddFigurine {...props} />}
+            exact
+          />
+          <Route
+            path="/seriedetail/:id/figurine/:id([0-9]*)"
             render={props => <FigurineDetail {...props} />}
+            exact
           />
         </div>
       </Router>
