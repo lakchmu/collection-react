@@ -1,0 +1,21 @@
+.footer {
+  background-color: $color--white;
+  border: 0;
+  border-radius: 5px;
+  bottom: 0;
+  box-sizing: border-box;
+  height: 150px;
+  left: 50%;
+  padding-top: $padding--md;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 978px;
+
+  .button-reverse {
+    padding: 0;
+  }
+
+  .fa-arrow-circle-left {
+    padding-right: $padding--sm;
+  }
+}
