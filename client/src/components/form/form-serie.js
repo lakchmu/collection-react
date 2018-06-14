@@ -329,7 +329,7 @@ class FormSerie extends Component {
           ))
           }
         </form>
-        <button className="button-success" onClick={this.headerAddMFigurine}>
+        <button className="button" onClick={this.headerAddMFigurine}>
           + Meta Figurine
         </button>
       </div>
