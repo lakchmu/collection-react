@@ -11,9 +11,11 @@ class FigurineDetail extends Component {
     super(props);
     this.state = { figurine: {}, serie: {}, photos: [] };
     getJson(`${API_METHOD_FIGURINE}?id=${this.props.match.params.id}`)
-      .then(response => this.setState({ figurine: response.results[0] }));
-    getJson(`${API_METHOD_SERIES}?id=${this.props.match.params.id}`)
-      .then(response => this.setState({ serie: response.results[0] }));
+      .then(response => this.setState({ figurine: response.results[0] }))
+      .then(() => (
+        getJson(`${API_METHOD_SERIES}?id=${this.state.figurine.series}`)
+          .then(response => this.setState({ serie: response.results[0] }))
+      ));
     getJson(`${API_METHOD_PHOTO_FIGURINE}?figurine=${this.props.match.params.id}`)
       .then(response => this.setState({ photos: response.results }));
   }
@@ -46,30 +48,36 @@ class FigurineDetail extends Component {
                 <li>
                   <Dropbox figurineId={this.props.match.params.id} />
                 </li>
-                <li>
-                  <Modal
-                    anchor={
-                      <img className="modal-anchor" src={serie.image} alt={serie.name} />
-                    }
-                  >
-                    <div className="modal-body">
-                      <img src={serie.image} alt={serie.name} />
-                    </div>
-                  </Modal>
-                </li>
-                <li>
-                  <Modal anchor={
-                    <img
-                      className="modal-anchor"
-                      src={figurine.image}
-                      alt={figurine.name}
-                    />}
-                  >
-                    <div className="modal-body">
-                      <img src={figurine.image} alt={figurine.name} />
-                    </div>
-                  </Modal>
-                </li>
+                {(serie.image) ?
+                  <li>
+                    <Modal
+                      anchor={
+                        <img className="modal-anchor" src={serie.image} alt={serie.name} />
+                      }
+                    >
+                      <div className="modal-body">
+                        <img src={serie.image} alt={serie.name} />
+                      </div>
+                    </Modal>
+                  </li>
+                  : ''
+                }
+                {(figurine.image) ?
+                  <li>
+                    <Modal anchor={
+                      <img
+                        className="modal-anchor"
+                        src={figurine.image}
+                        alt={figurine.name}
+                      />}
+                    >
+                      <div className="modal-body">
+                        <img src={figurine.image} alt={figurine.name} />
+                      </div>
+                    </Modal>
+                  </li>
+                  : ''
+                }
                 {photos.concat(photo).map(ph => (
                   <li key={ph.id}>
                     <Modal anchor={

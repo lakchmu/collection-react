@@ -38,5 +38,5 @@ export class PhotoProvider extends React.Component {
 }
 
 PhotoProvider.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.instanceOf(Array).isRequired,
 };
