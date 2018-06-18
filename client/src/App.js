@@ -10,9 +10,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <PhotoProvider>
           <Content>
+            <Navbar />
             <Navtab />
           </Content>
           <Footer />

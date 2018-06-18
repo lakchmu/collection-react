@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import { API_METHOD_YEARS } from '../constants';
 import Home from './home';
 import Sidebar from './nav/sidebar';
@@ -9,11 +9,13 @@ import SerieDetail from './serie-detail';
 import FormSerie from './form/form-serie';
 // import NewSerie from './form/new-serie';
 import AllSeries from './all-series';
+import SearchResult from './search-result';
 import FigurineDetail from './figurine-detail';
 import FormAddFigurine from './form/form-add-figurine';
 
 class Content extends Component {
   render() {
+    const SearchResultWithRouter = withRouter(SearchResult);
     return (
       <Router>
         <div className="content">
@@ -52,6 +54,10 @@ class Content extends Component {
             render={props => <AllSeries {...props} />}
           />
           <Route
+            path="/search-result"
+            render={props => <SearchResultWithRouter {...props} />}
+          />
+          <Route
             path="/seriedetail/:id/figurine/add"
             render={props => <FormAddFigurine {...props} />}
             exact
@@ -68,7 +74,7 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default Content;
