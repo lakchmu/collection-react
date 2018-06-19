@@ -20,8 +20,8 @@ class AllSeries extends Component {
 
   getSeries() {
     const apiMethod = (this.props.match.params.year === 'all') ?
-      API_METHOD_SERIES :
-      `${API_METHOD_SERIES}?year=${this.props.match.params.year}`;
+      `${API_METHOD_SERIES}?page=${this.props.match.params.page}` :
+      `${API_METHOD_SERIES}?year=${this.props.match.params.year}&page=${this.props.match.params.page}`;
     getJson(apiMethod).then(response => this.setState({ series: response.results }));
   }
 

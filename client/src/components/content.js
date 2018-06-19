@@ -50,7 +50,7 @@ class Content extends Component {
             render={props => <FormSerie {...props} header="Edit serie" />}
           />
           <Route
-            path="/all-series/:year"
+            path="/all-series/:year/:page"
             render={props => <AllSeries {...props} />}
           />
           <Route

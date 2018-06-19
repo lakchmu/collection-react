@@ -7,7 +7,7 @@ class Navtab extends Component {
       <nav className="navtab">
         <ul>
           <li><NavLink href="/home" to="/home">Home</NavLink></li>
-          <li><NavLink href="/all-series/all" to="/all-series/all">All Series</NavLink></li>
+          <li><NavLink href="/all-series/all" to="/all-series/all/1">All Series</NavLink></li>
           <li><NavLink href="/newserie" to="/newserie">Add serie</NavLink></li>
           <li><NavLink href="/info" to="/info">Info</NavLink></li>
         </ul>
