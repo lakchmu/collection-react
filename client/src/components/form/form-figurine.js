@@ -77,7 +77,7 @@ class FormFigurine extends Component {
           <span className="label">Image</span>
         </div>
         <div className="col-3 file-input-wrapper" ref={this.inputWrapper} >
-          <FileInput name={`${this.props.index}-image`} />
+          <FileInput name={`${this.props.index}-image`} title="image" />
         </div>
       </div>
     );

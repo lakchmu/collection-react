@@ -37,7 +37,7 @@ class FileInput extends Component {
         <label htmlFor={this.props.name}>
           <span className="content-wrapper">
             <i className="far fa-image" />
-            <p>Select {this.props.name}{this.props.required ? <span>*</span> : ''} here</p>
+            <p>Select {this.props.title}{this.props.required ? <span>*</span> : ''} here</p>
           </span>
         </label>
         <div className="image-cell">
@@ -58,6 +58,7 @@ FileInput.defaultProps = {
 
 FileInput.propTypes = {
   name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   required: PropTypes.string,
   className: PropTypes.string,
 };

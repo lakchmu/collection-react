@@ -239,9 +239,10 @@ class FormSerie extends Component {
             </div>
           </div>
           <div className="row dropbox-group">
-            <FileInput name="image" />
+            <FileInput name="image" title="image" />
             <FileInput
               name="photo"
+              title="photo"
               className="form-control"
               required={(this.props.header === 'New serie') ? 'required' : ''}
             />
