@@ -30,13 +30,14 @@ class Content extends Component {
           <Route exact path="/info" component={Info} />
           <Route
             exact
-            path="/all-series/:year"
+            path="/all-series/:year/:page"
             render={props => (
               <Sidebar
                 {...props}
                 linkTo="/all-series"
                 requestPath={API_METHOD_YEARS}
                 extra="all"
+                pagesAreExpected
               />)}
           />
           <Route

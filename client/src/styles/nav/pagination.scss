@@ -1,0 +1,48 @@
+.pagination {
+  display: block;
+  margin-top: $margin--6xl;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin-right: $margin--xs;
+    width: auto;
+
+    &:first-child {
+      margin-left: $margin--xs;
+    }
+  }
+
+  a,
+  strong {
+    border: 1px solid $color--grey-4;
+    color: $color--orange-100;
+    display: block;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6em;
+    padding: 8px 11px;
+  }
+
+  a {
+    text-decoration-line: none;
+
+    &.active {
+      background-color: $color--orange-100;
+      color: $color--white;
+    }
+
+    .fa-angle-double-left {
+      margin-right: $margin--xs;
+    }
+
+    .fa-angle-double-right {
+      margin-left: $margin--xs;
+    }
+  }
+
+  strong {
+    color: $color--grey-3;
+  }
+}
