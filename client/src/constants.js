@@ -1,3 +1,4 @@
+const API_URL = 'http://127.0.0.1:8000';
 const API_END_POINT = 'http://127.0.0.1:8000/api/';
 const API_METHOD_SERIES = 'getseries';
 const API_METHOD_COUNT = 'getcountinfo';
@@ -14,6 +15,7 @@ const API_METHOD_PHOTO_FIGURINE = 'photofigurine';
 const API_METHOD_FEATURES = 'getfeature';
 
 export {
+  API_URL,
   API_END_POINT,
   API_METHOD_SERIES,
   API_METHOD_COUNT,

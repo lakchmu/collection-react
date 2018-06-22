@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Modal from './modal';
 import Search from './form/search';
 import { getJson } from '../app-lib';
-import { API_METHOD_SERIES_FOR_DECADES } from '../constants';
+import { API_URL, API_METHOD_SERIES_FOR_DECADES } from '../constants';
+import Card from './card';
 
 class SeriesForDecades extends Component {
   constructor(props) {
@@ -19,9 +20,7 @@ class SeriesForDecades extends Component {
         <div className="modal-title">{item.year}</div>
         <Search />
         <div className="modal-body">
-          <ul>
-            {item.series.map(series => <li key={series.id}>{series.name}</li>)}
-          </ul>
+          {item.series.map(serie => <Card serie={serie} key={serie.id} apiUrl={API_URL} />)}
         </div>
       </Modal>
     ));

@@ -21,11 +21,11 @@ class Card extends Component {
   }
 
   render() {
-    const { serie } = this.props;
+    const { serie, apiUrl } = this.props;
     const info = this.state.serieFigurineInfo;
     return (
       <div className="card" >
-        <img className="image" src={serie.image} alt="Serie" />
+        <img className="image" src={`${apiUrl}${serie.image}`} alt="Serie" />
         <div className="card-body">
           <h3 className="card-header">{serie.name}</h3>
           <div className="card-footer">
@@ -48,10 +48,12 @@ class Card extends Component {
 
 Card.defaultProps = {
   serie: {},
+  apiUrl: '',
 };
 
 Card.propTypes = {
   serie: PropTypes.instanceOf(Object),
+  apiUrl: PropTypes.string,
 };
 
 export default Card;

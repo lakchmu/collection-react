@@ -1,6 +1,4 @@
 .series-for-decades {
-  text-align: center;
-
   .cell {
     background-color: $color--grey-5;
     border: 0;
@@ -22,6 +20,37 @@
       // background-color: $color--orange-100;
       perspective: 1000px;
       transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .modal {
+    img {
+      height: 125px;
+    }
+
+    .modal-content {
+      max-height: 60vh;
+      max-width: 80vw;
+      overflow-y: scroll;
+      width: 978px;
+    }
+  }
+
+  .card {
+    width: 200px;
+
+    .card-header {
+      font-size: 16px;
+      margin-bottom: $margin--xs;
+    }
+
+    .card-body {
+      padding: $padding--sm;
+      text-align: left;
+
+      .card-link {
+        font-size: 12px;
+      }
     }
   }
 }
