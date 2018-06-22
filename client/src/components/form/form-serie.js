@@ -77,7 +77,7 @@ class FormSerie extends Component {
     form.status.value = serie.status;
     form.type.value = serie.type;
     if (serie.show_on_the_home) {
-      form.show_on_home.checked = 'checked';
+      form.show_on_the_home.checked = 'checked';
     }
     if (serie.full) {
       form.full.checked = 'checked';
@@ -87,6 +87,8 @@ class FormSerie extends Component {
   submit() {
     const oData = new FormData(this.form.current);
     const formElements = Array.from(this.formMF.current.elements);
+    oData.set('full', this.form.current.full.checked);
+    oData.set('show_on_the_home', this.form.current.show_on_the_home.checked);
     for (let i = 0, j = 0; i < formElements.length; i += 3, j += 1) {
       const del = this.state.serie.figurines[j].delete;
       if (del !== true) {
@@ -297,13 +299,13 @@ class FormSerie extends Component {
           </div>
           <div className="row">
             <div className="checkbox">
-              <input type="checkbox" id="finished" name="finished" />
-              <label htmlFor="finished" />
+              <input type="checkbox" id="full" name="full" />
+              <label htmlFor="full" />
             </div>
             <span className="label" htmlFor="serie-year">Finished</span>
             <div className="checkbox">
-              <input type="checkbox" id="show_on_home" name="show_on_home" />
-              <label htmlFor="show_on_home" />
+              <input type="checkbox" id="show_on_the_home" name="show_on_the_home" />
+              <label htmlFor="show_on_the_home" />
             </div>
             <span className="label" htmlFor="serie-year">Show on home</span>
           </div>
