@@ -2,27 +2,29 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Tooltip from './tooltip';
-import { getJson } from '../app-lib';
-import { API_METHOD_SERIE_FIGURINE_INFO } from '../constants';
 
 class Card extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      serieFigurineInfo: {
-        not_bought_figurine: [],
-        bought_figurine: [],
-        bought_figurine_count: null,
-        not_bought_figurine_count: null,
-      },
-    };
-    getJson(`${API_METHOD_SERIE_FIGURINE_INFO}/${this.props.serie.id}`)
-      .then(response => this.setState({ serieFigurineInfo: response }));
+    this.getFigurineInfo = this.getFigurineInfo.bind(this);
+  }
+
+  getFigurineInfo() {
+    const { serie } = this.props;
+    const figurineInfo = { not_bought_figurine: [], bought_figurine: [] };
+    figurineInfo.not_bought_figurine = serie.figurines.filter(figurine => figurine.status);
+    figurineInfo.not_bought_figurine = serie.figurines
+      .filter(figurine => figurine.status)
+      .map(figurine => figurine.name);
+    figurineInfo.bought_figurine = serie.figurines
+      .filter(figurine => !figurine.status)
+      .map(figurine => figurine.name);
+    return figurineInfo;
   }
 
   render() {
     const { serie, apiUrl } = this.props;
-    const info = this.state.serieFigurineInfo;
+    const info = this.getFigurineInfo();
     return (
       <div className="card" >
         <img className="image" src={`${apiUrl}${serie.image}`} alt="Serie" />
@@ -32,9 +34,9 @@ class Card extends Component {
             <i className="fas fa-chess-queen card-icon" />
             <strong>
               In:
-              <Tooltip tooltipText={info.bought_figurine.join(', ') || '-'}><span>{info.bought_figurine_count}</span></Tooltip>
+              <Tooltip tooltipText={info.bought_figurine.join(', ') || '-'}><span>{info.bought_figurine.length}</span></Tooltip>
               | Out:
-              <Tooltip tooltipText={info.not_bought_figurine.join(', ') || '-'}><span>{info.not_bought_figurine_count}</span></Tooltip>
+              <Tooltip tooltipText={info.not_bought_figurine.join(', ') || '-'}><span>{info.not_bought_figurine.length}</span></Tooltip>
             </strong>
             <div className="fl-right">
               <Link className="card-link" href="./#" to={`/seriedetail/${serie.id}`}>Read More</Link>
