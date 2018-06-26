@@ -52,5 +52,9 @@ function getJson(API_METHOD) {
     });
 }
 
+function deepCopy(object) {
+  return JSON.parse(JSON.stringify(object));
+}
+
 export default request;
-export { getResponse, getSeries, getCountInfo, getJson };
+export { getResponse, getSeries, getCountInfo, getJson, deepCopy };
