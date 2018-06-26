@@ -14,10 +14,10 @@ class Card extends Component {
     const figurineInfo = { not_bought_figurine: [], bought_figurine: [] };
     figurineInfo.not_bought_figurine = serie.figurines.filter(figurine => figurine.status);
     figurineInfo.not_bought_figurine = serie.figurines
-      .filter(figurine => figurine.status)
+      .filter(figurine => !figurine.status)
       .map(figurine => figurine.name);
     figurineInfo.bought_figurine = serie.figurines
-      .filter(figurine => !figurine.status)
+      .filter(figurine => figurine.status)
       .map(figurine => figurine.name);
     return figurineInfo;
   }
