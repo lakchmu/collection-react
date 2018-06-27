@@ -81,6 +81,17 @@
     text-align: center;
   }
 
+  .tool-bar {
+    height: 0;
+    opacity: 0;
+    text-align: left;
+
+    &.show {
+      height: 29px;
+      opacity: 1;
+    }
+  }
+
   .search {
     width: 100%;
 
