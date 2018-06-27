@@ -37,7 +37,11 @@
     color: $color--grey-1;
     font-size: 20px;
     margin-bottom: $margin--md;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-transform: capitalize;
+    white-space: nowrap;
+    width: 100%;
   }
 
   .card-footer {
