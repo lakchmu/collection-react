@@ -12,4 +12,12 @@
   &:hover {
     color: $color--orange-100;
   }
+
+  &.button-reverse {
+    padding: 0;
+
+    .fa-arrow-circle-left {
+      padding-right: $padding--sm;
+    }
+  }
 }
