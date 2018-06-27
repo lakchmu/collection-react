@@ -6,10 +6,10 @@ import { API_METHOD_SERIES } from '../../constants';
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
-  handleSubmit(event) {
+  handleSearch(event) {
     event.preventDefault();
     const searchText = event.target.search.value;
     getJson(`${API_METHOD_SERIES}?search=${searchText}`)
@@ -23,7 +23,7 @@ class Search extends Component {
 
   render() {
     return (
-      <form className="search" onSubmit={e => this.handleSubmit(e)}>
+      <form className="search" onSubmit={this.props.handleSearch || this.handleSearch}>
         <input id="search" name="search" type="text" placeholder="Search Here..." />
         <button type="submit">
           <i className="fas fa-search" />
@@ -33,8 +33,16 @@ class Search extends Component {
   }
 }
 
+Search.defaultProps = {
+  handleSearch: undefined,
+};
+
 Search.propTypes = {
   history: PropTypes.instanceOf(Object).isRequired,
+  handleSearch: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.instanceOf(undefined),
+  ]),
 };
 
 export default Search;
