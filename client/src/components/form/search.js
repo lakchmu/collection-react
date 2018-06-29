@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getJson } from '../../app-lib';
-import { API_METHOD_SERIES } from '../../constants';
 
 class Search extends Component {
   constructor(props) {
@@ -11,19 +9,22 @@ class Search extends Component {
 
   handleSearch(event) {
     event.preventDefault();
-    const searchText = event.target.search.value;
-    getJson(`${API_METHOD_SERIES}?search=${searchText}`)
-      .then(response => (
-        this.props.history.push({
-          pathname: '/search-result',
-          search: '',
-          state: { result: response.results },
-        })));
+    this.props.history.push({
+      pathname: `/search-result/${event.target.search.value}/1`,
+      search: '',
+      state: {},
+    });
   }
 
   render() {
     return (
-      <form className="search" onSubmit={this.props.handleSearch || this.handleSearch}>
+      <form
+        className="search"
+        onSubmit={
+          this.props.handleSearch ||
+          (e => this.handleSearch(e))
+        }
+      >
         <input id="search" name="search" type="text" placeholder="Search Here..." />
         <button type="submit">
           <i className="fas fa-search" />

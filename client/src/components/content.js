@@ -55,7 +55,7 @@ class Content extends Component {
             render={props => <AllSeries {...props} />}
           />
           <Route
-            path="/search-result"
+            path="/search-result/:searchtext/:page"
             render={props => <SearchResultWithRouter {...props} />}
           />
           <Route

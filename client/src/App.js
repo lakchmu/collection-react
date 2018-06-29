@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PhotoProvider } from './context/photo';
+import { PaginationDataProvider } from './context/pagination-data';
 import Navbar from './components/nav/navbar';
 import Navtab from './components/nav/navtab';
 import Footer from './components/footer';
@@ -11,11 +12,13 @@ class App extends Component {
     return (
       <div>
         <PhotoProvider>
-          <Content>
-            <Navbar />
-            <Navtab />
-          </Content>
-          <Footer />
+          <PaginationDataProvider>
+            <Content>
+              <Navbar />
+              <Navtab />
+            </Content>
+            <Footer />
+          </PaginationDataProvider>
         </PhotoProvider>
       </div>
     );

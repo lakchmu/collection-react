@@ -49,7 +49,6 @@ class Pagination extends Component {
             <NavLink
               href={`${this.props.baseUrl}/${item.label}`}
               to={`${this.props.baseUrl}/${item.label}`}
-              onClick={this.props.onClick}
             >{item.label}
             </NavLink> :
             <strong>{item.label}</strong>
@@ -68,7 +67,6 @@ class Pagination extends Component {
                 <Link
                   href={this.props.previousUrl}
                   to={this.props.previousUrl}
-                  onClick={this.props.onClick}
                 >
                   <i className="fas fa-angle-double-left" />Previous
                 </Link>
@@ -81,7 +79,6 @@ class Pagination extends Component {
                 <Link
                   href={this.props.nextUrl}
                   to={this.props.nextUrl}
-                  onClick={this.props.onClick}
                 >
                   Next <i className="fas fa-angle-double-right" />
                 </Link>
@@ -107,6 +104,5 @@ Pagination.propTypes = {
   baseUrl: PropTypes.string,
   nextUrl: PropTypes.string,
   previousUrl: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
 };
 export default Pagination;
