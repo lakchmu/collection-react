@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 class Pagination extends Component {
   constructor(props) {
@@ -65,26 +65,26 @@ class Pagination extends Component {
           {
             (this.props.previousUrl) ?
               <li>
-                <NavLink
+                <Link
                   href={this.props.previousUrl}
                   to={this.props.previousUrl}
                   onClick={this.props.onClick}
                 >
                   <i className="fas fa-angle-double-left" />Previous
-                </NavLink>
+                </Link>
               </li> : ''
           }
           {this.getMenu()}
           {
             (this.props.nextUrl) ?
               <li>
-                <NavLink
+                <Link
                   href={this.props.nextUrl}
                   to={this.props.nextUrl}
                   onClick={this.props.onClick}
                 >
                   Next <i className="fas fa-angle-double-right" />
-                </NavLink>
+                </Link>
               </li> : ''
           }
         </ul>
