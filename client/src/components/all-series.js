@@ -34,7 +34,8 @@ class AllSeries extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.match.params.year !== this.props.match.params.year) {
+    if (prevProps.match.params.year !== this.props.match.params.year ||
+      prevProps.match.params.page !== this.props.match.params.page) {
       this.getSeries();
     }
   }
