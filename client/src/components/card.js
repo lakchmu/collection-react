@@ -6,7 +6,14 @@ import Tooltip from './tooltip';
 class Card extends Component {
   constructor(props) {
     super(props);
+    this.card = React.createRef();
     this.getFigurineInfo = this.getFigurineInfo.bind(this);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.card.current.classList.add('show');
+    }, 200);
   }
 
   getFigurineInfo() {
@@ -26,7 +33,7 @@ class Card extends Component {
     const { serie, apiUrl } = this.props;
     const info = this.getFigurineInfo();
     return (
-      <div className="card" >
+      <div className="card" ref={this.card}>
         <img className="image" src={`${apiUrl}${serie.image}`} alt="Serie" />
         <div className="card-body">
           <h3 className="card-header">{serie.name}</h3>
