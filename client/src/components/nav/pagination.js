@@ -1,8 +1,18 @@
+/* global window */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 
 class Pagination extends Component {
+  static handleClick() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+
   constructor(props) {
     super(props);
     this.getMenu = this.getMenu.bind(this);
@@ -49,6 +59,7 @@ class Pagination extends Component {
             <NavLink
               href={`${this.props.baseUrl}/${item.label}`}
               to={`${this.props.baseUrl}/${item.label}`}
+              onClick={Pagination.handleClick}
             >{item.label}
             </NavLink> :
             <strong>{item.label}</strong>
@@ -67,6 +78,7 @@ class Pagination extends Component {
                 <Link
                   href={this.props.previousUrl}
                   to={this.props.previousUrl}
+                  onClick={Pagination.handleClick}
                 >
                   <i className="fas fa-angle-double-left" />Previous
                 </Link>
@@ -79,6 +91,7 @@ class Pagination extends Component {
                 <Link
                   href={this.props.nextUrl}
                   to={this.props.nextUrl}
+                  onClick={Pagination.handleClick}
                 >
                   Next <i className="fas fa-angle-double-right" />
                 </Link>
