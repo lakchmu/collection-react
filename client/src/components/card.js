@@ -10,12 +10,6 @@ class Card extends Component {
     this.getFigurineInfo = this.getFigurineInfo.bind(this);
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.card.current.classList.add('show');
-    }, 200);
-  }
-
   getFigurineInfo() {
     const { serie } = this.props;
     const figurineInfo = { not_bought_figurine: [], bought_figurine: [] };
