@@ -29,7 +29,7 @@ class PaginationWrapper extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.page !== this.props.page) {
+    if (prevProps.page !== this.props.page || prevProps.apiMethod !== this.props.apiMethod) {
       this.getData();
     }
   }
