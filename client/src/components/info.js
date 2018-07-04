@@ -11,8 +11,15 @@ class Info extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] };
+    this.getData = this.getData.bind(this);
     getJson(API_METHOD_FIGURINES_BY_YEAR)
       .then(response => this.setState({ data: response.data_list }));
+  }
+
+  getData() {
+    return this.state.data.map(item => (
+      { figurines: item.figurines, year: new Date(item.year, 11, 31) }
+    ));
   }
 
   render() {
@@ -22,13 +29,14 @@ class Info extends Component {
           <MetricsGraphics
             animate_on_load
             area={false}
-            data={this.state.data}
+            data={this.getData()}
             width={978}
             height={250}
             x_accessor="year"
             y_accessor="figurines"
             x_rug="true"
-            xax_format={a => a}
+            x_mouseover={a => `In ${a.year.getFullYear()}, `}
+            y_mouseover={a => `there are ${a.figurines} figurines`}
           />) : ''
         }
         <div className="col-left">
