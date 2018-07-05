@@ -50,7 +50,7 @@ class PaginationWrapper extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pagination-wrapper">
         {this.props.children}
         {(this.state.pageCount !== 1) ?
           <Pagination

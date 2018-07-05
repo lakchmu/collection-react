@@ -1,0 +1,8 @@
+.pagination-wrapper {
+  display: grid;
+  grid-template-columns: 326px 326px 326px;
+
+  @media screen and (max-width: 800px) {
+      grid-template-columns: 266px 266px 266px;
+    }
+}
