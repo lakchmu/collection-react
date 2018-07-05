@@ -5,11 +5,18 @@
     padding: $padding--lg 0 $padding--lg $padding--xs;
   }
 
-  .card {
-    width: 292px;
+  .pagination-wrapper {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
 
-    img {
-      height: 155px;
+    @media screen and (max-width: 800px) {
+      grid-template-columns: 241px 241px 241px;
+
+      .card {
+        img {
+          height: 136px;
+        }
+      }
     }
   }
 }
