@@ -4,7 +4,7 @@
   line-height: 32px;
   margin: auto;
   padding: $padding--6xl 0 $padding--8xl;
-  width: 978px;
+  width: 100%;
 
   .navbar-container {
     height: 32px;
@@ -48,5 +48,9 @@
   .logo {
     font-size: 26px;
     text-transform: uppercase;
+  }
+
+  @media screen and (min-width: 800px) {
+    padding: $padding--4xl 0 $padding--6xl;
   }
 }
