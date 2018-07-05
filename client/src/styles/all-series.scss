@@ -10,7 +10,8 @@
     grid-template-columns: 300px 300px 300px;
 
     @media screen and (max-width: 800px) {
-      grid-template-columns: 241px 241px 241px;
+      grid-template-columns: 237px 237px 237px;
+      margin-left: 0;
 
       .card {
         img {
@@ -18,5 +19,9 @@
         }
       }
     }
+  }
+
+  @media screen and (max-width: 805px) {
+    margin-left: 0;
   }
 }
