@@ -1,5 +1,7 @@
 .pagination {
   display: block;
+  grid-column-end: 4;
+  grid-column-start: 1;
   margin-top: $margin--6xl;
   text-align: center;
 
