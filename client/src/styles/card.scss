@@ -8,7 +8,7 @@
   img {
     border: 0;
     border-radius: 2px;
-    height: 180px;
+    height: 150px;
     position: relative;
     width: 100%;
     z-index: 1;
@@ -57,6 +57,26 @@
 
     .fl-right {
       float: right;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 241px 241px 241px;
+
+    .card-body {
+      padding: $padding--sm;
+
+      .card-link {
+        font-size: 13px;
+      }
+    }
+
+    .card-header {
+      font-size: 18px;
+    }
+
+    .card-footer {
+      font-size: 10px;
     }
   }
 }
