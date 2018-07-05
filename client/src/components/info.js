@@ -1,3 +1,5 @@
+/* global window */
+
 import React, { Component } from 'react';
 import MetricsGraphics from 'react-metrics-graphics';
 import 'metrics-graphics/dist/metricsgraphics.css';
@@ -23,6 +25,7 @@ class Info extends Component {
   }
 
   render() {
+    const width = (window.innerWidth >= 978) ? 978 : (window.innerWidth - 10);
     return (
       <div className="info">
         { (this.state.data.length > 0) ? (
@@ -30,7 +33,7 @@ class Info extends Component {
             animate_on_load
             area={false}
             data={this.getData()}
-            width={978}
+            width={width}
             height={250}
             x_accessor="year"
             y_accessor="figurines"
