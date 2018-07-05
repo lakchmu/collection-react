@@ -6,8 +6,9 @@
   box-sizing: border-box;
   height: 150px;
   left: 50%;
+  max-width: 978px;
   padding-top: $padding--md;
   position: absolute;
   transform: translateX(-50%);
-  width: 978px;
+  width: 100%;
 }
