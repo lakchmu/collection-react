@@ -1,5 +1,15 @@
 .home {
+  display: grid;
+  grid-template-columns: 326px 326px 326px;
+
   h1 {
+    grid-column-end: 4;
+    grid-column-start: 1;
     padding: $padding--lg 0;
   }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 266px 266px 266px;
+  }
 }
+
