@@ -26,4 +26,8 @@
     color: $color--orange-100;
     font-size: 10px;
   }
+
+  @media screen and (max-width: 805px) {
+    margin: 73px $margin--xs $margin--xs;
+  }
 }
