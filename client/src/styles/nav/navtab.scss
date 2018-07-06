@@ -1,10 +1,11 @@
 .navtab {
-  border-bottom: 1px solid $color--black-10;
-  border-top: 1px solid $color--black-10;
+  box-sizing: border-box;
   margin-bottom: $margin--6xl;
   width: 100%;
 
   ul {
+    border-bottom: 1px solid $color--black-10;
+    border-top: 1px solid $color--black-10;
     text-align: center;
   }
 
@@ -29,6 +30,7 @@
   }
 
   @media screen and (min-width: 800px) {
-    margin: 0 $margin--xs $margin--lg;
+    margin-bottom: $margin--lg;
+    padding: 0 $margin--xs;
   }
 }
