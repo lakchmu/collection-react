@@ -2,8 +2,8 @@
   box-sizing: border-box;
   display: grid;
   grid-auto-rows: 65px;
-  grid-column-gap: $padding--xs;
-  grid-row-gap: $padding--xs;
+  grid-column-gap: $gap--xs;
+  grid-row-gap: $gap--xs;
   grid-template-columns: repeat(7, 1fr);
   padding-left: $padding--xs;
   text-align: right;

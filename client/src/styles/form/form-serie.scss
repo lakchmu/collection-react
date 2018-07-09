@@ -5,8 +5,8 @@
 
   form {
     display: grid;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-column-gap: $gap--xs;
+    grid-row-gap: $gap--xs;
     grid-template-columns: repeat(4, 1fr);
 
     .form-group:nth-child(1),
