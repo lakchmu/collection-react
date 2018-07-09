@@ -7,10 +7,11 @@
 
   .pagination-wrapper {
     display: grid;
-    grid-template-columns: 300px 300px 300px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
 
     @media screen and (max-width: 800px) {
-      grid-template-columns: 237px 237px 237px;
       margin-left: 0;
 
       .card {
@@ -22,6 +23,8 @@
   }
 
   @media screen and (max-width: 805px) {
+    box-sizing: border-box;
     margin-left: 0;
+    padding: 0 $padding--xs;
   }
 }

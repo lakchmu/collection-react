@@ -1,6 +1,8 @@
 .home {
   display: grid;
-  grid-template-columns: 326px 326px 326px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
 
   h1 {
     grid-column-end: 4;
@@ -9,7 +11,8 @@
   }
 
   @media screen and (max-width: 800px) {
-    grid-template-columns: 266px 266px 266px;
+    box-sizing: border-box;
+    padding: 0 $padding--xs;
   }
 }
 
