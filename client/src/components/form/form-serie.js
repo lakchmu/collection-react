@@ -196,93 +196,85 @@ class FormSerie extends Component {
           onSubmit={event => this.handleSubmit(event)}
           noValidate
         >
-          <div className="row">
-            <div className="col-75">
-              <label htmlFor="serie-title">Serie title <span>*</span></label>
-              <input
-                id="serie-title"
-                className="form-control"
-                name="name"
-                type="text"
-                required
-              />
-              <div className="invalid-feedback" />
-            </div>
-            <div className="col-25">
-              <label htmlFor="serie-year">Serie year <span>*</span></label>
-              <input
-                id="serie-year"
-                className="form-control"
-                name="year"
-                type="number"
-                required
-              />
-              <div className="invalid-feedback" />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-75">
-              <label htmlFor="serie-title">Link to FK</label>
-              <input
-                id="serie-title"
-                name="link_to_fk"
-                type="text"
-              />
-            </div>
-            <div className="col-25">
-              <label htmlFor="serie-year">Stars</label>
-              <input
-                id="serie-year"
-                name="stars"
-                type="number"
-                min="0"
-                max="5"
-              />
-            </div>
-          </div>
-          <div className="row dropbox-group">
-            <FileInput name="image" title="image" />
-            <FileInput
-              name="photo"
-              title="photo"
+          <div className="form-group">
+            <label htmlFor="serie-title">Serie title <span>*</span></label>
+            <input
+              id="serie-title"
               className="form-control"
-              required={(this.props.header === 'New serie') ? 'required' : ''}
+              name="name"
+              type="text"
+              required
+            />
+            <div className="invalid-feedback" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="serie-year">Serie year <span>*</span></label>
+            <input
+              id="serie-year"
+              className="form-control"
+              name="year"
+              type="number"
+              required
+            />
+            <div className="invalid-feedback" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="serie-title">Link to FK</label>
+            <input
+              id="serie-title"
+              name="link_to_fk"
+              type="text"
             />
           </div>
-          <div className="row">
-            <div className="col-25">
-              <label htmlFor="serie-year">Producer</label>
-              <select name="company">
-                <option value="kinder">Kinder</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div className="col-25">
-              <label htmlFor="serie-year">Made in</label>
-              <select name="made_in">
-                <option value="Russia">Russia</option>
-                <option value="Germany">Germany</option>
-                <option value="Italy">Italy</option>
-                <option value="Europe">Europe</option>
-              </select>
-            </div>
-            <div className="col-25">
-              <label htmlFor="serie-year">Status</label>
-              <select name="status">
-                <option value="bought">Bought</option>
-                <option value="not_bought">Not Bought</option>
-                <option value="want">Want</option>
-              </select>
-            </div>
-            <div className="col-25">
-              <label htmlFor="serie-year">Type</label>
-              <select name="type">
-                <option value="sectional">Sectional</option>
-                <option value="molded">Molded</option>
-              </select>
-            </div>
+          <div className="form-group">
+            <label htmlFor="serie-year">Stars</label>
+            <input
+              id="serie-year"
+              name="stars"
+              type="number"
+              min="0"
+              max="5"
+            />
           </div>
-          <div className="row">
+          <FileInput name="image" title="image" />
+          <FileInput
+            name="photo"
+            title="photo"
+            className="form-control"
+            required={(this.props.header === 'New serie') ? 'required' : ''}
+          />
+          <div className="form-group">
+            <label htmlFor="serie-year">Producer</label>
+            <select name="company">
+              <option value="kinder">Kinder</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="serie-year">Made in</label>
+            <select name="made_in">
+              <option value="Russia">Russia</option>
+              <option value="Germany">Germany</option>
+              <option value="Italy">Italy</option>
+              <option value="Europe">Europe</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="serie-year">Status</label>
+            <select name="status">
+              <option value="bought">Bought</option>
+              <option value="not_bought">Not Bought</option>
+              <option value="want">Want</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="serie-year">Type</label>
+            <select name="type">
+              <option value="sectional">Sectional</option>
+              <option value="molded">Molded</option>
+            </select>
+          </div>
+          <div className="form-group">
             <label htmlFor="serie-year">Features</label>
             <Select2
               className="select"
@@ -295,9 +287,10 @@ class FormSerie extends Component {
                   allowClear: true,
                 }
               }
+              style={{ width: '100%' }}
             />
           </div>
-          <div className="row">
+          <div className="form-group">
             <div className="checkbox">
               <input type="checkbox" id="full" name="full" />
               <label htmlFor="full" />
@@ -309,7 +302,7 @@ class FormSerie extends Component {
             </div>
             <span className="label" htmlFor="serie-year">Show on home</span>
           </div>
-          <div className="row">
+          <div className="form-group">
             <input type="submit" value="Submit" />
             <span className="info-text" ref={this.infoText}>
               {this.props.match.params.id ? 'Changes saved' : 'New series created'}
