@@ -1,11 +1,22 @@
 .serie-detail {
+  display: grid;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-columns: 2fr 1fr 1fr;
+
   h2 {
     color: $color--grey-2;
+    grid-column-end: 4;
+    grid-column-start: 1;
     text-transform: capitalize;
 
     small {
       font-style: italic;
     }
+  }
+
+  .images-wrapper {
+    font-size: 0;
   }
 
   img {
@@ -14,10 +25,10 @@
     max-width: 100%;
     padding: $padding--xs;
     width: auto;
-  }
 
-  .image {
-    padding-bottom: $padding--xs;
+    &:first-child {
+      margin-bottom: $margin--xs;
+    }
   }
 
   a {
@@ -28,5 +39,22 @@
     &:hover {
       color: $color--orange-100;
     }
+  }
+
+  .serie-info {
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+  .sidebar {
+    margin: 0;
+
+    a {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    box-sizing: border-box;
+    padding: 0 $padding--xs;
   }
 }

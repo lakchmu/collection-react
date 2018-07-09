@@ -27,24 +27,22 @@ class SerieDetail extends Component {
           {serie.name}
           <small> {serie.year} <NavLink href={`/editserie/${serie.id}`} to={`/editserie/${serie.id}`}><i className="fas fa-pencil-alt" /></NavLink></small>
         </h2>
-        <div className="col-50">
-          <img className="image" src={serie.image} alt="" />
+        <div className="images-wrapper">
+          <img src={serie.image} alt="" />
           <img src={serie.photo} alt="" />
         </div>
-        <div className="col-25 text-center">
+        <div className="serie-info text-center">
           <p>Company: {serie.company}</p>
           <p>Made in: {serie.made_in}</p>
           <p>Cost: {cost} <i className="fas fa-ruble-sign" /></p>
         </div>
-        <div className="col-25">
-          {(serie.id) ? (
-            <Sidebar
-              linkTo={`${this.props.match.url}/figurine`}
-              requestPath={`${API_METHOD_FIGURINE_OF_SERIES}/${serie.id}`}
-              extra="add"
-            />
-          ) : ''}
-        </div>
+        {(serie.id) ? (
+          <Sidebar
+            linkTo={`${this.props.match.url}/figurine`}
+            requestPath={`${API_METHOD_FIGURINE_OF_SERIES}/${serie.id}`}
+            extra="add"
+          />
+        ) : ''}
       </div>
     );
   }
