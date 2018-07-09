@@ -42,10 +42,8 @@ class Info extends Component {
             y_mouseover={a => `there are ${a.figurines} figurines`}
           />) : ''
         }
-        <div className="col-left">
-          <SeriesForDecades />
-        </div>
-        <div className="col-right">
+        <SeriesForDecades />
+        <div className="info_table-wrapper">
           <GeneralInfo />
           <WarningInfo />
         </div>

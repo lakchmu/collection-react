@@ -1,23 +1,26 @@
 .series-for-decades {
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-rows: 65px;
+  grid-column-gap: $padding--xs;
+  grid-row-gap: $padding--xs;
+  grid-template-columns: repeat(7, 1fr);
+  padding-left: $padding--xs;
+  text-align: right;
+
   .cell {
     background-color: $color--grey-5;
     border: 0;
     color: $color--grey-3;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     font-size: 14px;
-    // font-weight: 700;
-    height: 59px;
     letter-spacing: 3px;
-    line-height: 59px;
-    margin: $margin--xs;
     text-align: center;
-    width: 59px;
 
     &:hover {
       animation: shake .7s linear infinite;
       backface-visibility: hidden;
-      // background-color: $color--orange-100;
       perspective: 1000px;
       transform: translate3d(0, 0, 0);
     }
@@ -52,6 +55,11 @@
         font-size: 12px;
       }
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 62px;
   }
 }
 

@@ -1,36 +1,36 @@
 .info {
+  display: grid;
   font-size: 0;
+  grid-template-columns: 50% 50%;
   margin-top: -$margin--6xl;
   width: 100%;
+
+  .metricsGraphicsCon {
+    grid-column-end: 4;
+    grid-column-start: 1;
+  }
+
+  .general-info,
+  .warning-info {
+    padding: 0 5px;
+  }
+
+  .general-info {
+    margin-bottom: $margin--xs;
+  }
 }
 
-// .series-for-decades {
-//   box-sizing: border-box;
+// .col-left,
+// .col-right {
 //   display: inline-block;
-//   padding: $padding--xs;
 //   vertical-align: top;
 //   width: 50%;
 // }
 
-// .general-info,
-// .warning-info {
-//   box-sizing: border-box;
-//   float: right;
-//   padding: $padding--xs;
-//   width: 50%;
+// .col-right {
+//   * {
+//     padding: $padding--xs;
+//   }
 // }
-
-.col-left,
-.col-right {
-  display: inline-block;
-  vertical-align: top;
-  width: 50%;
-}
-
-.col-right {
-  * {
-    padding: $padding--xs;
-  }
-}
 
 
