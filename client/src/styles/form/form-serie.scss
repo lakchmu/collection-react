@@ -1,9 +1,13 @@
 .form-serie {
+  box-sizing: border-box;
+  padding: 0 $padding--xs;
+  width: 100%;
+
   form {
     display: grid;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, 1fr);
 
     .form-group:nth-child(1),
     .form-group:nth-child(3) {
@@ -37,12 +41,17 @@
 
       label {
         margin-right: $margin--xs;
+
+        @media screen and (max-width: 800px) {
+          margin-right: 0;
+        }
       }
     }
 
     .form-group:nth-child(11) {
       grid-column-end: 5;
       grid-column-start: 1;
+      position: relative;
     }
 
     .form-group:nth-child(12) {

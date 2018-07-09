@@ -187,6 +187,7 @@ class FormSerie extends Component {
   render() {
     const { features, serie } = this.state;
     const className = this.state.isValidated ? 'was-validated' : '';
+    const width = (window.innerWidth >= 978) ? '100%' : `${(window.innerWidth - 10)}px`;
     return (
       <div className="form-serie">
         <h2>{this.props.header}</h2>
@@ -287,7 +288,7 @@ class FormSerie extends Component {
                   allowClear: true,
                 }
               }
-              style={{ width: '100%' }}
+              style={{ width }}
             />
           </div>
           <div className="form-group">
