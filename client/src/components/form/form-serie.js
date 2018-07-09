@@ -313,7 +313,7 @@ class FormSerie extends Component {
           </div>
         </form>
         <h2>Meta Figurines</h2>
-        <form className={className} ref={this.formMF}>
+        <form noValidate className={`${className}`} ref={this.formMF}>
           {serie.figurines.map((figurine, index) => (
             <FormMetaFigurine
               name={figurine.name}
