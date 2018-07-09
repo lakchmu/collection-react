@@ -82,6 +82,8 @@
   }
 
   .tool-bar {
+    grid-column-end: 5;
+    grid-column-start: 1;
     height: 0;
     opacity: 0;
     text-align: left;
@@ -89,6 +91,11 @@
     &.show {
       height: 29px;
       opacity: 1;
+    }
+
+    @media screen and (max-width: 800px) {
+      grid-column-end: 4;
+      grid-column-start: 1;
     }
   }
 
