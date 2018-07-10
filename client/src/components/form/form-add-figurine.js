@@ -66,7 +66,7 @@ class FormAddFigurine extends Component {
           // eslint-disable-next-line react/no-array-index-key
           <FormFigurine index={index} key={index} figurine={figurine} />
         ))}
-        <div className="row">
+        <div className="submit-group">
           <input type="submit" value="Submit" />
           <span className="info-text" ref={this.infoText}>
             Changes saved

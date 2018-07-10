@@ -1,7 +1,31 @@
 .form-figurine {
-  [class^='col-'] {
-    height: 112px;
-    line-height: 112px;
-    vertical-align: middle;
+  display: grid;
+  grid-column-gap: $gap--xs;
+  grid-row-gap: $gap--xs;
+  grid-template-columns: 1fr 4fr 2fr 1fr 1fr 4fr;
+  grid-template-rows: 112px;
+  line-height: 112px;
+
+  .form-group:nth-child(1),
+  .form-group:nth-child(5) {
+    .label {
+      margin: 0;
+    }
+  }
+
+  .form-group:nth-child(6) {
+    .image-cell {
+      margin: 0;
+    }
+  }
+}
+
+.form-add-figurine {
+  .submit-group {
+    text-align: left;
+  }
+
+  @media screen and (min-width: 800px) {
+    padding: 0 $padding--xs;
   }
 }

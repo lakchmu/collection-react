@@ -30,14 +30,14 @@ class FormFigurine extends Component {
   render() {
     return (
       <div className="form-figurine row">
-        <div className="col-1">
+        <div className="form-group">
           <div className="checkbox">
             <input type="checkbox" id={`${this.props.index}-status`} name={`${this.props.index}-status`} ref={this.status} />
             <label htmlFor={`${this.props.index}-status`} />
           </div>
           <span className="label">Status</span>
         </div>
-        <div className="col-4">
+        <div className="form-group">
           <input
             className="form-control"
             name={`${this.props.index}-name`}
@@ -46,7 +46,7 @@ class FormFigurine extends Component {
             ref={this.name}
           />
         </div>
-        <div className="col-2">
+        <div className="form-group">
           <input
             className="form-control"
             name={`${this.props.index}-index`}
@@ -55,7 +55,7 @@ class FormFigurine extends Component {
             ref={this.index}
           />
         </div>
-        <div className="col-1">
+        <div className="form-group">
           <input
             className="form-control"
             name={`${this.props.index}-cost`}
@@ -64,7 +64,7 @@ class FormFigurine extends Component {
             ref={this.cost}
           />
         </div>
-        <div className="col-1">
+        <div className="form-group">
           <div className="checkbox">
             <input
               type="checkbox"
@@ -76,7 +76,7 @@ class FormFigurine extends Component {
           </div>
           <span className="label">Image</span>
         </div>
-        <div className="col-3 file-input-wrapper" ref={this.inputWrapper} >
+        <div className="form-group file-input-wrapper" ref={this.inputWrapper} >
           <FileInput name={`${this.props.index}-image`} title="image" />
         </div>
       </div>
