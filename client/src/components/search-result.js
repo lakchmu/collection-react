@@ -12,7 +12,7 @@ class SearchResult extends Component {
     return (
       <PaginationDataConsumer>
         {({ paginationData, changePaginationData }) => (
-          <div className="home">
+          <div className="search-result">
             <h1>Search result ({paginationData.length})</h1>
             <PaginationWrapper
               apiMethod={`${API_METHOD_SERIES}?search=${searchtext}`}

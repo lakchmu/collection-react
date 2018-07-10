@@ -1,0 +1,7 @@
+.search-result {
+  @media screen and (min-width: 800px) {
+    box-sizing: border-box;
+    padding: 0 $padding--xs;
+    width: 100%;
+  }
+}
