@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { getJson } from './../app-lib';
 import { API_METHOD_SERIES,
   API_METHOD_FIGURINE_OF_SERIES,
-  API_METHOD_COST_OF_SERIES_FIGURINE,
 } from './../constants';
 import Sidebar from './nav/sidebar';
 
@@ -12,15 +11,19 @@ import Sidebar from './nav/sidebar';
 class SerieDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = { serie: {}, cost: 0 };
+    this.state = { serie: { figurines: [] } };
+    this.getSerieCost = this.getSerieCost.bind(this);
     getJson(`${API_METHOD_SERIES}?id=${this.props.match.params.id}`)
       .then(response => this.setState({ serie: response.results[0] }));
-    getJson(`${API_METHOD_COST_OF_SERIES_FIGURINE}/${this.props.match.params.id}`)
-      .then(response => this.setState({ cost: response.cost }));
+  }
+
+  getSerieCost() {
+    const { figurines } = this.state.serie;
+    return figurines.reduce(((cost, figurine) => cost + figurine.cost), 0);
   }
 
   render() {
-    const { serie, cost } = this.state;
+    const { serie } = this.state;
     return (
       <div className="serie-detail">
         <h1>
@@ -34,7 +37,7 @@ class SerieDetail extends Component {
         <div className="serie-info text-center">
           <p>Company: {serie.company}</p>
           <p>Made in: {serie.made_in}</p>
-          <p>Cost: {cost} <i className="fas fa-ruble-sign" /></p>
+          <p>Cost: {this.getSerieCost()} <i className="fas fa-ruble-sign" /></p>
         </div>
         {(serie.id) ? (
           <Sidebar
