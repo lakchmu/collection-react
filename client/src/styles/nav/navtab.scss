@@ -1,6 +1,7 @@
 .navtab {
   box-sizing: border-box;
   margin-bottom: $margin--6xl;
+  padding: 0 $padding--xs;
   width: 100%;
 
   ul {
@@ -29,8 +30,7 @@
     }
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (max-width: 800px) {
     margin-bottom: $margin--lg;
-    padding: 0 $margin--xs;
   }
 }

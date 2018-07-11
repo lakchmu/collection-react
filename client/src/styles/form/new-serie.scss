@@ -1,9 +1,7 @@
-.form-serie {
-  box-sizing: border-box;
-  padding: 0 $padding--xs;
+.new-serie {
   width: 100%;
 
-  form {
+  .form-serie {
     display: grid;
     grid-column-gap: $gap--xs;
     grid-row-gap: $gap--xs;

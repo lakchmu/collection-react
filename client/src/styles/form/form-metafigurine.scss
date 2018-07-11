@@ -1,8 +1,5 @@
-.meta-figurine-form {
-  grid-column-end: 5;
-  grid-column-start: 1;
-  position: relative;
-  z-index: 1;
+.form-meta-figurine {
+  grid-template-columns: 7fr 2fr .5fr;
 
   .fa-times,
   .fa-undo {

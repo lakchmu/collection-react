@@ -1,10 +1,7 @@
 .serie-detail {
-  display: grid;
-  grid-column-gap: $gap--xs;
-  grid-row-gap: $gap--xs;
   grid-template-columns: 2fr 1fr 1fr;
 
-  h2 {
+  h1 {
     color: $color--grey-2;
     grid-column-end: 4;
     grid-column-start: 1;
@@ -51,10 +48,5 @@
     a {
       font-size: 14px;
     }
-  }
-
-  @media screen and (max-width: 800px) {
-    box-sizing: border-box;
-    padding: 0 $padding--xs;
   }
 }

@@ -1,18 +1,7 @@
 .home {
-  display: grid;
-  grid-column-gap: $gap--xs;
-  grid-row-gap: $gap--xs;
-  grid-template-columns: repeat(3, 1fr);
-
   h1 {
     grid-column-end: 4;
     grid-column-start: 1;
-    padding: $padding--lg 0;
-  }
-
-  @media screen and (max-width: 800px) {
-    box-sizing: border-box;
-    padding: 0 $padding--xs;
   }
 }
 

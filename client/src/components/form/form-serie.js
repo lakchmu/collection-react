@@ -168,7 +168,7 @@ class FormSerie extends Component {
     event.preventDefault();
     event.target.classList.toggle('fa-times');
     event.target.classList.toggle('fa-undo');
-    const formLine = event.target.closest('.meta-figurine-form');
+    const formLine = event.target.closest('.form-meta-figurine');
     formLine.querySelectorAll('input')
       .forEach((input) => {
         if (input.hasAttribute('disabled')) {
@@ -189,10 +189,10 @@ class FormSerie extends Component {
     const className = this.state.isValidated ? 'was-validated' : '';
     const width = (window.innerWidth >= 978) ? '100%' : `${(window.innerWidth - 10)}px`;
     return (
-      <div className="form-serie">
+      <div className="new-serie">
         <h2>{this.props.header}</h2>
         <form
-          className={className}
+          className={`form-serie ${className}`}
           ref={this.form}
           onSubmit={event => this.handleSubmit(event)}
           noValidate
@@ -314,7 +314,7 @@ class FormSerie extends Component {
           </div>
         </form>
         <h2>Meta Figurines</h2>
-        <form noValidate className={`${className}`} ref={this.formMF}>
+        <form noValidate className={`form-add-meta-figurine ${className}`} ref={this.formMF}>
           {serie.figurines.map((figurine, index) => (
             <FormMetaFigurine
               name={figurine.name}

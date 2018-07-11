@@ -23,10 +23,10 @@ class SerieDetail extends Component {
     const { serie, cost } = this.state;
     return (
       <div className="serie-detail">
-        <h2>
+        <h1>
           {serie.name}
           <small> {serie.year} <NavLink href={`/editserie/${serie.id}`} to={`/editserie/${serie.id}`}><i className="fas fa-pencil-alt" /></NavLink></small>
-        </h2>
+        </h1>
         <div className="images-wrapper">
           <img src={serie.image} alt="" />
           <img src={serie.photo} alt="" />

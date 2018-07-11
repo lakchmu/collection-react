@@ -37,12 +37,12 @@ class FigurineDetail extends Component {
       <PhotoConsumer>
         {({ photo }) => (
           <div className="figurine-detail" >
-            <h2>{figurine.name}&nbsp;
+            <h1>{figurine.name}&nbsp;
               <small>
                 {figurine.index}&nbsp;
                 {figurine.cost} <i className="fas fa-ruble-sign" />
               </small>
-            </h2>
+            </h1>
             <div className="gallery">
               <ul>
                 <li>

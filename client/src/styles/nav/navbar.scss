@@ -1,9 +1,10 @@
 .navbar {
+  box-sizing: border-box;
   color: $color--grey-3;
   height: 32px;
   line-height: 32px;
   margin: auto;
-  padding: $padding--6xl 0 $padding--8xl;
+  padding: $padding--6xl $padding--xs $padding--8xl;
   width: 100%;
 
   .navbar-container {
@@ -51,6 +52,6 @@
   }
 
   @media screen and (min-width: 800px) {
-    padding: $padding--4xl 0 $padding--6xl;
+    padding: $padding--4xl $padding--xs $padding--6xl;
   }
 }

@@ -1,30 +1,11 @@
 .all-series {
-  margin-left: -$margin--xs;
-
-  h1 {
-    padding: $padding--lg 0 $padding--lg $padding--xs;
-  }
-
   .pagination-wrapper {
-    display: grid;
-    grid-column-gap: $gap--xs;
-    grid-row-gap: $gap--xs;
-    grid-template-columns: repeat(3, 1fr);
-
     @media screen and (max-width: 800px) {
-      margin-left: 0;
-
       .card {
         img {
           height: 136px;
         }
       }
     }
-  }
-
-  @media screen and (max-width: 805px) {
-    box-sizing: border-box;
-    margin-left: 0;
-    padding: 0 $padding--xs;
   }
 }

@@ -1,0 +1,28 @@
+.home,
+.pagination-wrapper,
+.serie-detail,
+.form-meta-figurine {
+  display: grid;
+  grid-column-gap: $gap--xs;
+  grid-row-gap: $gap--xs;
+}
+
+.home,
+.pagination-wrapper {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.home,
+.all-series,
+.search-result,
+.serie-detail,
+.figurine-detail,
+.new-serie,
+.form-add-figurine {
+  box-sizing: border-box;
+  padding: 0 $padding--xs;
+
+  h1 {
+    padding: $padding--lg 0;
+  }
+}
