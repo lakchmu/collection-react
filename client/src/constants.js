@@ -1,5 +1,7 @@
-const API_URL = 'http://127.0.0.1:8000';
-const API_END_POINT = 'http://127.0.0.1:8000/api/';
+// const API_URL = 'http://127.0.0.1:8000';
+// const API_END_POINT = 'http://127.0.0.1:8000/api/';
+const API_URL = 'http://192.168.1.109:8000';
+const API_END_POINT = 'http://192.168.1.109:8000/api/';
 const API_METHOD_SERIES = 'getseries';
 const API_METHOD_COUNT = 'getcountinfo';
 const API_METHOD_SERIE_FIGURINE_INFO = 'seriefigurineinfo';
