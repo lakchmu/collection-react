@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { getJson } from './../app-lib';
-import { API_METHOD_SERIES,
-  API_METHOD_FIGURINE_OF_SERIES,
-} from './../constants';
+import { API_METHOD_SERIES } from './../constants';
 import Sidebar from './nav/sidebar';
 
 
@@ -42,7 +40,7 @@ class SerieDetail extends Component {
         {(serie.id) ? (
           <Sidebar
             linkTo={`${this.props.match.url}/figurine`}
-            requestPath={`${API_METHOD_FIGURINE_OF_SERIES}/${serie.id}`}
+            data={serie.figurines}
             extra="add"
           />
         ) : ''}

@@ -9,7 +9,6 @@ const API_METHOD_FEATURES = 'getfeature';
 const API_METHOD_COUNT = 'getcountinfo';
 const API_METHOD_YEARS = 'getyears';
 
-const API_METHOD_FIGURINE_OF_SERIES = 'getfigurineofseries';
 const API_METHOD_FIGURINES_BY_YEAR = 'figurinesByYear';
 const API_METHOD_GENERAL_INFO = 'generalInfo';
 
@@ -22,7 +21,6 @@ export {
   API_METHOD_FEATURES,
   API_METHOD_COUNT,
   API_METHOD_YEARS,
-  API_METHOD_FIGURINE_OF_SERIES,
   API_METHOD_FIGURINES_BY_YEAR,
   API_METHOD_GENERAL_INFO,
 };

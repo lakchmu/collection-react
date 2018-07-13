@@ -2,18 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import { API_METHOD_YEARS } from '../constants';
+import { getJson } from './../app-lib';
 import Home from './home';
 import Sidebar from './nav/sidebar';
 import Info from './info';
 import SerieDetail from './serie-detail';
 import FormSerie from './form/form-serie';
-// import NewSerie from './form/new-serie';
 import AllSeries from './all-series';
 import SearchResult from './search-result';
 import FigurineDetail from './figurine-detail';
 import FormAddFigurine from './form/form-add-figurine';
 
 class Content extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: [] };
+    getJson(API_METHOD_YEARS)
+      .then(response => this.setState({ data: response.data_list }));
+  }
+
   render() {
     const SearchResultWithRouter = withRouter(SearchResult);
     return (
@@ -35,7 +42,7 @@ class Content extends Component {
               <Sidebar
                 {...props}
                 linkTo="/all-series"
-                requestPath={API_METHOD_YEARS}
+                data={this.state.data}
                 extra="all"
                 pagesAreExpected
               />)}

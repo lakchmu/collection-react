@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { getJson } from '../../app-lib';
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: [] };
-    getJson(this.props.requestPath)
-      .then(response => this.setState({ data: response.data_list }));
-  }
-
   render() {
-    const listItem = this.state.data.map(item => (
+    const listItem = this.props.data.map(item => (
       <li key={item.id ? item.id : item}>
         <NavLink
           href={`${this.props.linkTo}/${item.id ? item.id : item}${(this.props.pagesAreExpected) ? '/1' : ''}`}
@@ -49,12 +41,13 @@ class Sidebar extends Component {
 }
 
 Sidebar.defaultProps = {
+  data: [],
   extra: '',
   pagesAreExpected: false,
 };
 
 Sidebar.propTypes = {
-  requestPath: PropTypes.string.isRequired,
+  data: PropTypes.instanceOf(Array),
   linkTo: PropTypes.string.isRequired,
   extra: PropTypes.string,
   pagesAreExpected: PropTypes.bool,
