@@ -2,8 +2,9 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import request, { getJson } from '../../app-lib';
+import request from '../../app-lib';
 import { API_METHOD_FIGURINE, API_METHOD_SERIES } from '../../constants';
+import Storage from './../../storage';
 
 import FormFigurine from './form-figurine';
 
@@ -15,8 +16,9 @@ class FormAddFigurine extends Component {
     this.errorText = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = { figurines: [] };
-    getJson(`${API_METHOD_FIGURINE}?series=${this.props.match.params.id}`)
-      .then(response => this.setState({ figurines: response.results }));
+    Storage
+      .getFigurines([{ filter: 'series', value: `${this.props.match.params.id}` }])
+      .then(figurines => this.setState({ figurines }));
   }
 
   handleSubmit(event) {

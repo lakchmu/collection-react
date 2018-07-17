@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select2 from 'react-select2-wrapper';
 import 'react-select2-wrapper/css/select2.css';
-import request, { getJson } from '../../app-lib';
-import { API_METHOD_FEATURES, API_METHOD_SERIES } from '../../constants';
+import request from '../../app-lib';
+import { API_METHOD_SERIES } from '../../constants';
+import Storage from './../../storage';
 import FileInput from './file-input';
 import FormMetaFigurine from './form-metafigurine';
 
@@ -37,10 +38,9 @@ class FormSerie extends Component {
       isValidated: false,
       action: 'none',
     };
-    getJson(API_METHOD_FEATURES)
-      .then(response => this.setState({ features: response.results }));
+    Storage.getFeatures().then(features => this.setState({ features }));
     if (this.props.match.params.id) {
-      this.getSeries();
+      this.getSerie().then(() => this.fillInForm());
     }
   }
 
@@ -52,11 +52,11 @@ class FormSerie extends Component {
     }
   }
 
-  getSeries() {
-    getJson(`${API_METHOD_SERIES}?id=${this.props.match.params.id}`)
-      .then((response) => {
-        this.setState({ serie: response.results[0] });
-        this.fillInForm();
+  getSerie() {
+    return Storage
+      .getSerie(this.props.match.params.id)
+      .then((serie) => {
+        this.setState({ serie });
       });
   }
 

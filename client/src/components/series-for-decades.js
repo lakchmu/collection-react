@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Storage from './../storage';
 import Modal from './modal';
 import Search from './form/search';
-import { getJson, deepCopy } from '../app-lib';
-import { API_METHOD_SERIES, API_METHOD_YEARS } from '../constants';
+import { deepCopy } from '../app-lib';
 import Card from './card';
 
 class SeriesForDecades extends Component {
@@ -19,16 +19,16 @@ class SeriesForDecades extends Component {
     this.handleClickBack = this.handleClickBack.bind(this);
     this.toolBar = React.createRef();
     this.modalAnchor = React.createRef();
-    getJson(`${API_METHOD_YEARS}`)
-      .then(response => this.setState({ years: response.data_list }));
+    Storage.getYears().then(years => this.setState({ years }));
   }
 
   handleClickCell(year) {
-    getJson(`${API_METHOD_SERIES}?year=${year}&status=bought`)
-      .then((response) => {
+    Storage
+      .getSeries([{ filter: 'year', value: `${year}` }, { filter: 'status', value: 'bought' }])
+      .then((data) => {
         this.setState({
-          data: response.results,
-          modalsState: deepCopy(response.results),
+          data,
+          modalsState: deepCopy(data),
           currentYear: year,
         });
         this.modalAnchor.current.click();
@@ -38,11 +38,14 @@ class SeriesForDecades extends Component {
   handleSearch(event) {
     event.preventDefault();
     const searchText = event.target.search.value;
-    getJson(`${API_METHOD_SERIES}?year=${this.state.currentYear}&status=bought&search=${searchText}`)
-      .then((response) => {
-        this.setState({ modalsState: response.results });
-        this.toolBar.current.classList.add('show');
-      });
+    Storage.getSeries([
+      { filter: 'year', value: this.state.currentYear },
+      { filter: 'status', value: 'bought' },
+      { filter: 'search', value: searchText },
+    ]).then((series) => {
+      this.setState({ modalsState: series });
+      this.toolBar.current.classList.add('show');
+    });
   }
 
   handleClickBack() {

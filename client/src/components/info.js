@@ -3,8 +3,7 @@
 import React, { Component } from 'react';
 import MetricsGraphics from 'react-metrics-graphics';
 import 'metrics-graphics/dist/metricsgraphics.css';
-import { getJson } from './../app-lib';
-import { API_METHOD_FIGURINES_BY_YEAR } from './../constants';
+import Storage from './../storage';
 import SeriesForDecades from './series-for-decades';
 import GeneralInfo from './general-info';
 import WarningInfo from './warning-info';
@@ -14,8 +13,7 @@ class Info extends Component {
     super(props);
     this.state = { data: [] };
     this.getData = this.getData.bind(this);
-    getJson(API_METHOD_FIGURINES_BY_YEAR)
-      .then(response => this.setState({ data: response.data_list }));
+    Storage.getFigurinesByYear().then(data => this.setState({ data }));
   }
 
   getData() {

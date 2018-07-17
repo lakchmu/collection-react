@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { getJson } from '../app-lib';
-import { API_METHOD_GENERAL_INFO } from '../constants';
+import Storage from './../storage';
 
 class GeneralInfo extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] };
-    getJson(API_METHOD_GENERAL_INFO)
-      .then(response => this.setState({ data: response }));
+    Storage.getGeneralInfo()
+      .then(data => this.setState({ data }));
   }
 
   render() {

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { getCountInfo } from '../../app-lib';
+import Storage from '../../storage';
 
 class CountInfo extends Component {
   constructor(props) {
     super(props);
     this.state = { countInfo: { series_count: 0, figurine_count: 0, cost: 0 } };
-    getCountInfo().then((response) => {
-      this.setState({ countInfo: response });
-    });
+    Storage.getCountInfo().then(countInfo => this.setState({ countInfo }));
   }
 
   render() {

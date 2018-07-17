@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getJson } from './../app-lib';
-import { API_METHOD_FIGURINE, API_METHOD_SERIES, API_METHOD_PHOTO_FIGURINE } from './../constants';
+import Storage from './../storage';
 import Modal from './modal';
 import Dropbox from './form/dropbox';
 import { PhotoConsumer } from '../context/photo';
@@ -10,25 +9,11 @@ class FigurineDetail extends Component {
   constructor(props) {
     super(props);
     this.state = { figurine: {}, serie: {}, photos: [] };
-    getJson(`${API_METHOD_FIGURINE}?id=${this.props.match.params.id}`)
-      .then(response => this.setState({ figurine: response.results[0] }))
-      .then(() => (
-        getJson(`${API_METHOD_SERIES}?id=${this.state.figurine.series}`)
-          .then(response => this.setState({ serie: response.results[0] }))
-      ));
-    getJson(`${API_METHOD_PHOTO_FIGURINE}?figurine=${this.props.match.params.id}`)
-      .then(response => this.setState({ photos: response.results }));
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.getSeries();
-    }
-  }
-
-  getSeries() {
-    getJson(`${API_METHOD_FIGURINE}?id=${this.props.match.params.id}`)
-      .then(response => this.setState({ figurine: response.results[0] }));
+    Storage.getFigurine(this.props.match.params.id)
+      .then(figurine => this.setState({ figurine }))
+      .then(() => Storage.getSerie(this.state.figurine.series)
+        .then(serie => this.setState({ serie })));
+    Storage.getPhotoFigurine(this.props.match.params.id).then(photos => this.setState({ photos }));
   }
 
   render() {

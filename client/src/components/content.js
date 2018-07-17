@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
-import { API_METHOD_YEARS } from '../constants';
-import { getJson } from './../app-lib';
+import Storage from './../storage';
 import Home from './home';
 import Sidebar from './nav/sidebar';
 import Info from './info';
@@ -17,8 +16,7 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] };
-    getJson(API_METHOD_YEARS)
-      .then(response => this.setState({ data: response.data_list }));
+    Storage.getYears().then(data => this.setState({ data }));
   }
 
   render() {

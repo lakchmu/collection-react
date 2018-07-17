@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { getJson } from './../app-lib';
-import { API_METHOD_SERIES } from './../constants';
+import Storage from './../storage';
 import Sidebar from './nav/sidebar';
 
 
@@ -11,8 +10,7 @@ class SerieDetail extends Component {
     super(props);
     this.state = { serie: { figurines: [] } };
     this.getSerieCost = this.getSerieCost.bind(this);
-    getJson(`${API_METHOD_SERIES}?id=${this.props.match.params.id}`)
-      .then(response => this.setState({ serie: response.results[0] }));
+    Storage.getSerie(this.props.match.params.id).then(serie => this.setState({ serie }));
   }
 
   getSerieCost() {

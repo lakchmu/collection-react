@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { getJson } from '../app-lib';
-import { API_METHOD_SERIES } from '../constants';
+import Storage from './../storage';
 import Card from './card';
 
 
@@ -8,7 +7,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = { series: [] };
-    getJson(`${API_METHOD_SERIES}?show_on_the_home=True`).then(response => this.setState({ series: response.results }));
+    Storage.getSeries([{ filter: 'show_on_the_home', value: 'True' }]).then(series => this.setState({ series }));
   }
 
   render() {
